@@ -1,0 +1,46 @@
+{
+ "args": {
+  "methods": "online0_f+e@g1c1,online_name_f@g1c1",
+  "folds": 5,
+  "only_folds": "",
+  "max_subj": 20,
+  "max_acq": 200,
+  "max_eval": 100,
+  "hp": "{\"a\":0.4,\"s_u\":1.4,\"s_t\":0.5,\"s_v\":1.0,\"s_w\":2.2,\"c\":0.1,\"n_cap\":1.0,\"s_f\":0.7,\"s_g\":0.3}",
+  "hp2": "{\"a\":0.6,\"s_v\":0.7,\"s_w\":1.6,\"c\":0.2,\"s_f\":0.5,\"s_g\":0.0}",
+  "knn": "{}",
+  "emb": "",
+  "subset": "data/proc/subset10k.parquet",
+  "tag": "R5ensF",
+  "seed": 0,
+  "template": true,
+  "merged": false,
+  "formative": 100,
+  "rows": 1000,
+  "tok": "both"
+ },
+ "summary": {
+  "online0_f+e@g1c1": {
+   "alc": 0.1848605000671022,
+   "curve": [
+    0.2503,
+    0.2059,
+    0.1909,
+    0.1744,
+    0.1568,
+    0.1422
+   ]
+  },
+  "online_name_f@g1c1": {
+   "alc": 0.18424844058940393,
+   "curve": [
+    0.2491,
+    0.2054,
+    0.1904,
+    0.1738,
+    0.1561,
+    0.1418
+   ]
+  }
+ }
+}

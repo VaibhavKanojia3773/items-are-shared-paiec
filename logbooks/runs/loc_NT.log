@@ -1,0 +1,17 @@
+budget  0: brier=0.2506 labels=0 (29s)
+budget  1: brier=0.1856 labels=77 (43s)
+budget  3: brier=0.1741 labels=229 (64s)
+budget  7: brier=0.1707 labels=535 (85s)
+budget 15: brier=0.1672 labels=1146 (118s)
+budget 31: brier=0.1639 labels=2365 (216s)
+ALC=0.1810 pairs=68
+  bench 4: ALC=0.1735 pairs=8
+  bench 19: ALC=0.1412 pairs=8
+  bench 23: ALC=0.1796 pairs=2
+  bench 63: ALC=0.2280 pairs=8
+  bench 75: ALC=0.2447 pairs=8
+  bench 89: ALC=0.2096 pairs=8
+  bench 92: ALC=0.1365 pairs=8
+  bench 109: ALC=0.2644 pairs=2
+  bench 147: ALC=0.2387 pairs=8
+  bench 155: ALC=0.0551 pairs=8

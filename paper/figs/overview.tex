@@ -1,0 +1,46 @@
+% Figure 1: evidence paths (left) and pipeline (right). Compiled via figs/standalone_overview.tex.
+\begin{tikzpicture}[
+  font=\footnotesize, >={Stealth[length=1.8mm]},
+  cell/.style={draw=ink!35, minimum size=6mm, inner sep=0pt, line width=0.4pt},
+  acq/.style={cell, fill=accent!18},
+  tgt/.style={cell, fill=white},
+  oth/.style={cell, fill=ink!7},
+  lab/.style={font=\footnotesize, text=ink!80},
+  box/.style={draw=ink!50, rounded corners=2pt, fill=white, align=center, inner sep=3pt, text width=66mm, line width=0.5pt},
+  core/.style={box, draw=accent, fill=accent!6, line width=0.8pt}]
+\def\cs{0.64}
+% ---------------- left: subject x item evidence on one unseen benchmark ----------------
+\foreach \r/\row in {0/{a,t,a,t,t,a,t,o}, 1/{t,a,t,a,o,t,a,t}, 2/{a,t,o,a,t,a,t,a}, 3/{t,a,a,t,a,o,t,t}} {
+  \foreach \c [count=\ci from 0] in \row {
+    \pgfmathsetmacro{\x}{\ci*\cs}\pgfmathsetmacro{\y}{-\r*\cs}
+    \if\c t \node[tgt] at (\x,\y) {\textcolor{ink!45}{?}};\fi
+    \if\c o \node[oth] at (\x,\y) {};\fi
+  }
+}
+\foreach \x/\y/\v in {0/0/1, 2/0/0, 5/0/1, 1/1/1, 3/1/0, 6/1/1, 0/2/0, 3/2/1, 5/2/0, 7/2/1, 1/3/0, 2/3/1, 4/3/1}
+  \node[acq] at (\x*\cs,-\y*\cs) {\v};
+\foreach \r/\n in {0/{$A$}, 1/$B$, 2/$C$, 3/$D$} \node[lab, anchor=east] at (-0.38,-\r*\cs) {system \n};
+\foreach \c in {0,...,7} \node[lab, anchor=south] at (\c*\cs,0.33) {\ifnum\c=3 $j$\else\phantom{$j$}\fi};
+\node[lab, anchor=south] at (3.5*\cs,0.72) {\textbf{one benchmark $b$, unseen in development}};
+% evidence paths: row A (own labels, blue) and column j (other systems, orange); target A,j
+\draw[accent, line width=1pt, rounded corners=2pt] (-0.36,0.36) rectangle (7*\cs+0.36,-0.36);
+\draw[accent2, line width=1pt, rounded corners=2pt, dashed] (3*\cs-0.36,0.40) rectangle (3*\cs+0.36,-3*\cs-0.36);
+\node[cell, fill=accent2!25, draw=accent2, line width=1pt] at (3*\cs,0) {\textbf{?}};
+% explanation
+\node[lab, anchor=north west, align=left, text width=63mm] at (-1.45,-3*\cs-0.55) {%
+  Predicting system $A$ on item $j$ (orange) combines\\
+  \textcolor{accent}{\rule{7pt}{3pt}} $A$'s own revealed labels on $b$ $\Rightarrow$ ability $u_b{+}t_A{+}v_{Ab}$\\
+  \textcolor{accent2}{\rule{7pt}{3pt}} $B$'s and $C$'s revealed labels on $j$ $\Rightarrow$ difficulty $w_{bj}$\\[2pt]
+  \textcolor{accent!60}{\rule{7pt}{6pt}} revealed label \quad \textcolor{ink!45}{?} scored target \quad \textcolor{ink!25}{\rule{7pt}{6pt}} not sampled};
+
+% ---------------- right: pipeline strip ----------------
+\begin{scope}[shift={(8.6,0.55)}]
+  \node[box] (p0) at (0,0) {\textbf{Offline}, public data only: fit the base logit $\mu$;\\ select hyperparameters by held-out simulation};
+  \node[core, below=2.2mm of p0] (p1) {\textbf{Refit at every call} on all revealed labels $\mathcal{L}$ (MAP)\\[1pt]
+    $\operatorname{logit} p_{si} = a\mu + u_b + t_s + v_{sb} - w_{bi} + \textstyle\sum_{\tau} (f_{b\tau}{+}g_{sb\tau})$};
+  \node[box, below=2.2mm of p1] (p2) {\textbf{Predict} with posterior variance $\hat p=\sigma\big(m/\sqrt{1+c\,s^2}\big)$;\\ unlabelled items borrow $w$ from similar items (e5)};
+  \node[core, below=2.2mm of p2] (p3) {\textbf{Acquire} item $j$ for pair $(s,b)$ iff\\ $1-4\hat p(1-\hat p)\,e^{-\beta\min(n_j,3)} \le \gamma\cdot\frac{\text{labels left}}{\text{items left}}$};
+  \draw[->, ink!70] (p0) -- (p1); \draw[->, ink!70] (p1) -- (p2); \draw[->, ink!70] (p2) -- (p3);
+  \draw[->, accent2, line width=0.8pt] (p3.east) -- ++(3mm,0) |- node[pos=0.25, right, font=\scriptsize, text=accent2, align=left]{new\\label} (p1.east);
+\end{scope}
+\end{tikzpicture}

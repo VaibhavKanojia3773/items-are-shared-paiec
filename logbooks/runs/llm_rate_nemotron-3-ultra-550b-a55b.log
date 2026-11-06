@@ -1,0 +1,3 @@
+D:\predai\paiec\llm_rate.py:57: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  g = g.groupby("bench", group_keys=False).apply(lambda x: x.sample(min(per, len(x)), random_state=seed))
+model=nvidia/nemotron-3-ultra-550b-a55b items=90/450 (26340s) within-bench Spearman(rating, difficulty): mean 0.081 median 0.135 per bench [nan, 0.15, 0.12, 0.87, nan, -0.65, nan, -1.0, 1.0]

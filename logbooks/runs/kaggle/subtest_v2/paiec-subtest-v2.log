@@ -1,0 +1,22 @@
+[{"stream_name":"stdout","time":2.395003961,"data":"['artifacts', 'model.py', 'text_prior.py', 'online.py', 'labeling.py', 'models.txt']\n"}
+,{"stream_name":"stdout","time":136.427160739,"data":"budget  0: brier=0.2471 labels=0 (19s)\n"}
+,{"stream_name":"stdout","time":136.427214045,"data":"budget  1: brier=0.1965 labels=42 (21s)\n"}
+,{"stream_name":"stdout","time":136.427218543,"data":"budget  3: brier=0.1872 labels=126 (28s)\n"}
+,{"stream_name":"stdout","time":136.427222011,"data":"budget  7: brier=0.1854 labels=294 (35s)\n"}
+,{"stream_name":"stdout","time":136.427225322,"data":"budget 15: brier=0.1827 labels=630 (43s)\n"}
+,{"stream_name":"stdout","time":136.427228501,"data":"budget 31: brier=0.1815 labels=1302 (68s)\n"}
+,{"stream_name":"stdout","time":136.427231732,"data":"ALC=0.1932 pairs=24\n"}
+,{"stream_name":"stdout","time":136.427234966,"data":"\n"}
+,{"stream_name":"stdout","time":136.427238174,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":136.427241535,"data":"\n"}
+,{"stream_name":"stdout","time":136.427244612,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":136.427248234,"data":"Loading weights:   3%|▎         | 5/199 [00:00\u003c00:05, 37.63it/s]\n"}
+,{"stream_name":"stdout","time":136.427252115,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 1401.04it/s]\n"}
+,{"stream_name":"stdout","time":136.427255947,"data":"\n"}
+,{"stream_name":"stderr","time":138.321735746,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":138.321757429,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":138.532430785,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":138.532454729,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":139.277235461,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":140.1402715,"data":"[NbConvertApp] Writing 276581 bytes to __results__.html\n"}
+]

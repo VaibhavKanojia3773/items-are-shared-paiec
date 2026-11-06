@@ -1,0 +1,160 @@
+[1/159] abstract_reason {"resp": 9095, "interactors": 0.0, "full_targets_in_rep_cells": 0.001, "elig_pairs": 1, "overlap5": 0.0}
+[2/159] adaptivestep {"resp": 931328, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 2, "overlap5": 0.0}
+[3/159] advprompter {"resp": 100, "interactors": 1.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 0}
+[4/159] aegis {"resp": 11608, "interactors": 0.0, "full_targets_in_rep_cells": 0.018, "elig_pairs": 1, "overlap5": 0.0}
+[5/159] afrieval {"resp": 1403380, "interactors": 0.0, "full_targets_in_rep_cells": 0.014, "elig_pairs": 948, "overlap5": 0.981}
+[6/159] afrimedqa {"resp": 281354, "interactors": 0.0, "full_targets_in_rep_cells": 0.081, "elig_pairs": 32, "overlap5": 0.794}
+[7/159] agentic_review_perturbation {"resp": 315, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 3, "overlap5": 0.0}
+[8/159] agi_elo {"resp": 277106, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 20, "overlap5": 1.0}
+[9/159] ai2d_test {"resp": 784094, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 254, "overlap5": 1.0}
+[10/159] aider {"resp": 5356, "interactors": 0.0, "full_targets_in_rep_cells": 0.966, "elig_pairs": 0}
+[11/159] algotune {"resp": 2772, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 18, "overlap5": 1.0}
+[12/159] alignment_faking {"resp": 2093849, "interactors": 0.0, "full_targets_in_rep_cells": 0.047, "elig_pairs": 4278, "overlap5": 1.0}
+[13/159] alpha_sql {"resp": 1533, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 1, "overlap5": 0.0}
+[14/159] appworld {"resp": 10530, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 18, "overlap5": 1.0}
+[15/159] auditing_sabotage_bench {"resp": 1869, "interactors": 0.0, "full_targets_in_rep_cells": 0.998, "elig_pairs": 0}
+[16/159] averimatec {"resp": 152, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 1, "overlap5": 0.0}
+[17/159] babilong {"resp": 2020951, "interactors": 0.0, "full_targets_in_rep_cells": 0.01, "elig_pairs": 83, "overlap5": 0.523}
+[18/159] bbq {"resp": 380089, "interactors": 0.0, "full_targets_in_rep_cells": 0.004, "elig_pairs": 7, "overlap5": 0.0}
+[19/159] beavertails {"resp": 1680, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 4, "overlap5": 0.0}
+[20/159] benger {"resp": 9302, "interactors": 0.0, "full_targets_in_rep_cells": 0.002, "elig_pairs": 25, "overlap5": 1.0}
+[21/159] bertaqa {"resp": 57072, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 6, "overlap5": 0.001}
+[22/159] bird_sql {"resp": 43200, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 120, "overlap5": 1.0}
+[23/159] brace {"resp": 202096, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 28, "overlap5": 1.0}
+[24/159] braveguard {"resp": 536, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 2, "overlap5": 0.0}
+[25/159] bridging_gap {"resp": 4706881, "interactors": 0.0, "full_targets_in_rep_cells": 0.816, "elig_pairs": 417, "overlap5": 0.97}
+[26/159] causal_axioms {"resp": 9000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 2, "overlap5": 0.0}
+[27/159] cellverse {"resp": 748, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 1, "overlap5": 0.0}
+[28/159] ceval {"resp": 14806, "interactors": 0.0, "full_targets_in_rep_cells": 0.909, "elig_pairs": 2, "overlap5": 0.0}
+[29/159] chi_bench {"resp": 7667, "interactors": 0.0, "full_targets_in_rep_cells": 0.841, "elig_pairs": 0}
+[30/159] clasheval {"resp": 75216, "interactors": 0.0, "full_targets_in_rep_cells": 0.005, "elig_pairs": 6, "overlap5": 1.0}
+[31/159] cmmlu {"resp": 254804, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 22, "overlap5": 1.0}
+[32/159] confagents {"resp": 64, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 0}
+[33/159] critic_discernment_game {"resp": 7276, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 4, "overlap5": 0.0}
+[34/159] crow {"resp": 4976, "interactors": 0.0, "full_targets_in_rep_cells": 0.232, "elig_pairs": 26, "overlap5": 0.229}
+[35/159] cruxeval {"resp": 992000, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 31, "overlap5": 0.823}
+[36/159] dave {"resp": 19248, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 8, "overlap5": 0.37}
+[37/159] dbpa {"resp": 409, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 0}
+[38/159] devbench {"resp": 5149, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 1, "overlap5": 0.0}
+[39/159] disco {"resp": 111906, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 4, "overlap5": 0.0}
+[40/159] editbench {"resp": 23328, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 44, "overlap5": 1.0}
+[41/159] edu_circuit_hw {"resp": 2886, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 6, "overlap5": 0.682}
+[42/159] egoschema {"resp": 5500, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 11, "overlap5": 0.0}
+[43/159] ehrflowbench {"resp": 140, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 0}
+[44/159] elicitation_game {"resp": 14070, "interactors": 0.0, "full_targets_in_rep_cells": 0.92, "elig_pairs": 6, "overlap5": 0.0}
+[45/159] emoji_attack {"resp": 58860, "interactors": 1.0, "full_targets_in_rep_cells": 0.754, "elig_pairs": 2, "overlap5": 0.0}
+[46/159] engdesign {"resp": 5393, "interactors": 0.0, "full_targets_in_rep_cells": 0.989, "elig_pairs": 12, "overlap5": 1.0}
+[47/159] enginemt_qa {"resp": 676, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 1, "overlap5": 0.0}
+[48/159] erbench {"resp": 213110, "interactors": 0.0, "full_targets_in_rep_cells": 0.007, "elig_pairs": 8, "overlap5": 0.911}
+[49/159] evouna {"resp": 25359, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 5, "overlap5": 0.0}
+[50/159] exploitgym {"resp": 6357, "interactors": 0.0, "full_targets_in_rep_cells": 0.502, "elig_pairs": 5, "overlap5": 0.0}
+[51/159] faithcot {"resp": 2519, "interactors": 0.0, "full_targets_in_rep_cells": 0.003, "elig_pairs": 4, "overlap5": 0.0}
+[52/159] felm {"resp": 4426, "interactors": 0.0, "full_targets_in_rep_cells": 0.006, "elig_pairs": 1, "overlap5": 0.0}
+[53/159] fewshot_ttt_bbh {"resp": 7425, "interactors": 0.0, "full_targets_in_rep_cells": 0.076, "elig_pairs": 11, "overlap5": 0.907}
+[54/159] financebench {"resp": 2400, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 16, "overlap5": 1.0}
+[55/159] finegrain_t2i {"resp": 3750, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 5, "overlap5": 0.0}
+[56/159] haiid {"resp": 71364, "interactors": 0.5, "full_targets_in_rep_cells": 0.0, "elig_pairs": 0}
+[57/159] hallusionbench {"resp": 239475, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 253, "overlap5": 1.0}
+[58/159] harmbench {"resp": 107274, "interactors": 1.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 33, "overlap5": 0.418}
+[59/159] healthadminbench {"resp": 7020, "interactors": 0.0, "full_targets_in_rep_cells": 0.923, "elig_pairs": 7, "overlap5": 0.778}
+[60/159] helm_afr {"resp": 745360, "interactors": 0.0, "full_targets_in_rep_cells": 0.001, "elig_pairs": 22, "overlap5": 0.994}
+[61/159] helm_bbq {"resp": 81000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 81, "overlap5": 0.988}
+[62/159] helm_thaiexam {"resp": 23730, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 42, "overlap5": 1.0}
+[63/159] hle {"resp": 13777, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 12, "overlap5": 0.92}
+[64/159] icpc2_code_selector {"resp": 70905, "interactors": 0.0, "full_targets_in_rep_cells": 0.012, "elig_pairs": 39, "overlap5": 1.0}
+[65/159] igakuqa {"resp": 7355, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 5, "overlap5": 0.0}
+[66/159] igakuqa119 {"resp": 400, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 1, "overlap5": 0.0}
+[67/159] ikp {"resp": 268351, "interactors": 0.0, "full_targets_in_rep_cells": 0.31, "elig_pairs": 170, "overlap5": 1.0}
+[68/159] imagenet_hard {"resp": 97500, "interactors": 0.0, "full_targets_in_rep_cells": 0.001, "elig_pairs": 13, "overlap5": 1.0}
+[69/159] interchangeable_token_embeddings {"resp": 399731, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 2, "overlap5": 0.0}
+[70/159] jailbreakbench {"resp": 3074, "interactors": 1.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 10, "overlap5": 0.0}
+[71/159] judgetuning {"resp": 21000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 7, "overlap5": 1.0}
+[72/159] kernelbench {"resp": 73984, "interactors": 0.0, "full_targets_in_rep_cells": 0.977, "elig_pairs": 18, "overlap5": 1.0}
+[73/159] kmmlu {"resp": 1007230, "interactors": 0.0, "full_targets_in_rep_cells": 0.001, "elig_pairs": 30, "overlap5": 1.0}
+[74/159] kormedmcqa {"resp": 21391, "interactors": 0.0, "full_targets_in_rep_cells": 0.308, "elig_pairs": 6, "overlap5": 0.979}
+[75/159] legal_rag_bench {"resp": 1800, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 6, "overlap5": 1.0}
+[76/159] legalbench {"resp": 63457, "interactors": 0.0, "full_targets_in_rep_cells": 0.001, "elig_pairs": 31, "overlap5": 0.601}
+[77/159] lingoly {"resp": 24926, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 11, "overlap5": 0.273}
+[78/159] live_agent_risk {"resp": 256, "interactors": 0.0, "full_targets_in_rep_cells": 0.25, "elig_pairs": 0}
+[79/159] liveaopsbench {"resp": 69264, "interactors": 0.0, "full_targets_in_rep_cells": 0.002, "elig_pairs": 13, "overlap5": 1.0}
+[80/159] llm_bp_tag {"resp": 158596, "interactors": 0.0, "full_targets_in_rep_cells": 0.057, "elig_pairs": 1, "overlap5": 0.0}
+[81/159] llm_uncertainty_bench {"resp": 5100000, "interactors": 0.0, "full_targets_in_rep_cells": 0.003, "elig_pairs": 102, "overlap5": 1.0}
+[82/159] llmail_inject {"resp": 461016, "interactors": 0.0, "full_targets_in_rep_cells": 0.581, "elig_pairs": 22, "overlap5": 0.026}
+[83/159] llms_lean_formalization {"resp": 64092, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 120, "overlap5": 1.0}
+[84/159] mathconstraint {"resp": 11862, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 12, "overlap5": 1.0}
+[85/159] mathvista_mini {"resp": 268820, "interactors": 0.0, "full_targets_in_rep_cells": 0.052, "elig_pairs": 263, "overlap5": 1.0}
+[86/159] medhelm_ehr_sql {"resp": 13000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 13, "overlap5": 1.0}
+[87/159] medhelm_head_qa {"resp": 13000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 13, "overlap5": 1.0}
+[88/159] medhelm_med_mcqa {"resp": 13000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 13, "overlap5": 1.0}
+[89/159] medhelm_med_qa {"resp": 13000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 13, "overlap5": 1.0}
+[90/159] medhelm_medbullets {"resp": 4004, "interactors": 0.0, "full_targets_in_rep_cells": 0.065, "elig_pairs": 13, "overlap5": 1.0}
+[91/159] medhelm_medcalc_bench {"resp": 13000, "interactors": 0.0, "full_targets_in_rep_cells": 0.015, "elig_pairs": 13, "overlap5": 1.0}
+[92/159] medhelm_medec {"resp": 7761, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 13, "overlap5": 1.0}
+[93/159] medhelm_medhallu {"resp": 13000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 13, "overlap5": 0.692}
+[94/159] medhelm_pubmed_qa {"resp": 11000, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 13, "overlap5": 0.818}
+[95/159] medhelm_race_based_med {"resp": 2171, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 13, "overlap5": 1.0}
+[96/159] mind2web {"resp": 17153, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 1, "overlap5": 0.0}
+[97/159] mj_bench {"resp": 102859, "interactors": 0.0, "full_targets_in_rep_cells": 0.404, "elig_pairs": 55, "overlap5": 0.776}
+[98/159] mmbench_v11 {"resp": 3115891, "interactors": 0.0, "full_targets_in_rep_cells": 0.099, "elig_pairs": 251, "overlap5": 1.0}
+[99/159] mmlu {"resp": 2106300, "interactors": 0.0, "full_targets_in_rep_cells": 0.004, "elig_pairs": 150, "overlap5": 1.0}
+[100/159] mmlupro {"resp": 536290, "interactors": 0.0, "full_targets_in_rep_cells": 0.028, "elig_pairs": 48, "overlap5": 0.996}
+[101/159] monkey_power_laws {"resp": 28780000, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 13, "overlap5": 0.578}
+[102/159] morphkv {"resp": 3674, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 9, "overlap5": 0.908}
+[103/159] mtbbench {"resp": 8397, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 25, "overlap5": 1.0}
+[104/159] multi_swebench {"resp": 57975, "interactors": 0.0, "full_targets_in_rep_cells": 0.005, "elig_pairs": 82, "overlap5": 1.0}
+[105/159] mypcbench {"resp": 118, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 0}
+[106/159] naep_llm_students {"resp": 53680, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 11, "overlap5": 1.0}
+[107/159] naturebench {"resp": 2070, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 23, "overlap5": 0.825}
+[108/159] nester {"resp": 1128, "interactors": 0.0, "full_targets_in_rep_cells": 0.106, "elig_pairs": 3, "overlap5": 0.0}
+[109/159] nyu_ctf_bench {"resp": 2979, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 15, "overlap5": 0.799}
+[110/159] ood_prediction {"resp": 142805, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 2, "overlap5": 0.0}
+[111/159] openbiorq {"resp": 7213, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 11, "overlap5": 1.0}
+[112/159] os_harm {"resp": 1740, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 6, "overlap5": 0.0}
+[113/159] perfcodebench {"resp": 23854, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 20, "overlap5": 1.0}
+[114/159] perumedqa {"resp": 85107, "interactors": 0.0, "full_targets_in_rep_cells": 0.029, "elig_pairs": 11, "overlap5": 1.0}
+[115/159] pku_saferlhf {"resp": 164236, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 3, "overlap5": 0.0}
+[116/159] planbench {"resp": 38061, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 40, "overlap5": 0.737}
+[117/159] proofaug {"resp": 244, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 1, "overlap5": 0.0}
+[118/159] prox {"resp": 24298, "interactors": 0.0, "full_targets_in_rep_cells": 0.015, "elig_pairs": 2, "overlap5": 0.0}
+[119/159] pxplore {"resp": 3966, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 14, "overlap5": 0.649}
+[120/159] radar {"resp": 1, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 0}
+[121/159] real_webagents {"resp": 4449, "interactors": 0.0, "full_targets_in_rep_cells": 0.23, "elig_pairs": 26, "overlap5": 0.958}
+[122/159] realtimeqa {"resp": 63620, "interactors": 0.0, "full_targets_in_rep_cells": 0.007, "elig_pairs": 78, "overlap5": 0.992}
+[123/159] reliancescope {"resp": 7200, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 24, "overlap5": 1.0}
+[124/159] researchcodebench {"resp": 6784, "interactors": 0.0, "full_targets_in_rep_cells": 0.062, "elig_pairs": 31, "overlap5": 1.0}
+[125/159] revolve {"resp": 3100, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 2, "overlap5": 0.0}
+[126/159] risebench {"resp": 8271, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 23, "overlap5": 0.869}
+[127/159] robust_reasoning_benchmark {"resp": 146040, "interactors": 0.0, "full_targets_in_rep_cells": 0.98, "elig_pairs": 23, "overlap5": 0.493}
+[128/159] safeagentbench {"resp": 4500, "interactors": 0.0, "full_targets_in_rep_cells": 0.227, "elig_pairs": 6, "overlap5": 1.0}
+[129/159] scbench_long {"resp": 346, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 0}
+[130/159] sgrades {"resp": 673768, "interactors": 0.0, "full_targets_in_rep_cells": 0.288, "elig_pairs": 63, "overlap5": 1.0}
+[131/159] sib200 {"resp": 681564, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 3341, "overlap5": 0.999}
+[132/159] sketchjudge {"resp": 38562, "interactors": 0.0, "full_targets_in_rep_cells": 0.004, "elig_pairs": 38, "overlap5": 0.842}
+[133/159] software_world_models {"resp": 7830, "interactors": 0.0, "full_targets_in_rep_cells": 0.005, "elig_pairs": 18, "overlap5": 1.0}
+[134/159] statqa {"resp": 44194, "interactors": 0.0, "full_targets_in_rep_cells": 0.009, "elig_pairs": 38, "overlap5": 1.0}
+[135/159] subjective_qa {"resp": 16164, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 5, "overlap5": 0.0}
+[136/159] sugarcrepe {"resp": 15024, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 1, "overlap5": 0.0}
+[137/159] sustainable_food {"resp": 2999, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 6, "overlap5": 0.998}
+[138/159] swe_rebench {"resp": 67074, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 1, "overlap5": 0.0}
+[139/159] swe_smith {"resp": 49897, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 3, "overlap5": 0.0}
+[140/159] swe_together {"resp": 4341, "interactors": 0.0, "full_targets_in_rep_cells": 0.996, "elig_pairs": 20, "overlap5": 1.0}
+[141/159] swebench_live {"resp": 8656, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 44, "overlap5": 0.756}
+[142/159] swepolybench {"resp": 1870, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 6, "overlap5": 0.0}
+[143/159] tau2_bench {"resp": 23210, "interactors": 1.0, "full_targets_in_rep_cells": 0.988, "elig_pairs": 29, "overlap5": 0.0}
+[144/159] taubench {"resp": 4314, "interactors": 0.0, "full_targets_in_rep_cells": 0.459, "elig_pairs": 2, "overlap5": 0.0}
+[145/159] tensortrust {"resp": 681726, "interactors": 0.0, "full_targets_in_rep_cells": 0.239, "elig_pairs": 3, "overlap5": 0.0}
+[146/159] truthfulqa_mc {"resp": 122550, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 150, "overlap5": 1.0}
+[147/159] tulu_human_eval {"resp": 2300, "interactors": 0.0, "full_targets_in_rep_cells": 0.108, "elig_pairs": 4, "overlap5": 0.0}
+[148/159] tumlu {"resp": 137388, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 30, "overlap5": 0.0}
+[149/159] txbench_pp {"resp": 576, "interactors": 0.0, "full_targets_in_rep_cells": 1.0, "elig_pairs": 0}
+[150/159] visual_memory {"resp": 237500, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 5, "overlap5": 0.0}
+[151/159] visual_riddles {"resp": 3186, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 8, "overlap5": 0.877}
+[152/159] visualwebarena {"resp": 600, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 3, "overlap5": 0.0}
+[153/159] vl_rewardbench {"resp": 105697, "interactors": 0.0, "full_targets_in_rep_cells": 0.998, "elig_pairs": 7, "overlap5": 0.97}
+[154/159] weavebench {"resp": 114, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 0}
+[155/159] wikihow_agent {"resp": 171412, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 12, "overlap5": 1.0}
+[156/159] wmt_mqm {"resp": 4879368, "interactors": 0.0, "full_targets_in_rep_cells": 0.668, "elig_pairs": 113, "overlap5": 0.994}
+[157/159] workarena {"resp": 475, "interactors": 0.0, "full_targets_in_rep_cells": 0.013, "elig_pairs": 4, "overlap5": 0.0}
+[158/159] workbench_revisited {"resp": 16560, "interactors": 0.0, "full_targets_in_rep_cells": 0.0, "elig_pairs": 24, "overlap5": 1.0}
+[159/159] worldcentralbanks {"resp": 405558, "interactors": 0.0, "full_targets_in_rep_cells": 0.269, "elig_pairs": 10, "overlap5": 0.739}
+wrote D:\predai\logbooks\runs\final_eda_per_bench.csv (159 benchmarks)

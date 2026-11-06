@@ -1,0 +1,381 @@
+\documentclass{article}
+
+\PassOptionsToPackage{numbers, compress}{natbib}
+\usepackage[sglblindworkshop, final]{neurips_2026}
+\workshoptitle{Predictive AI Evaluation Competition (PAIEC)}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage{needspace}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+\definecolor{accent}{HTML}{2A78D6}
+\hypersetup{colorlinks=true, linkcolor=accent, citecolor=accent, urlcolor=accent}
+\newcommand{\ALC}{\mathrm{ALC}}
+\newcommand{\Lb}{\mathcal{L}}
+\DeclareMathOperator{\logit}{logit}
+\input{results.tex}
+\input{title.tex}
+
+\title{\papertitle}
+
+\author{%
+  Vaibhav Kanojia\\
+  \texttt{vaibhavkanojia3773@gmail.com}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Predictive AI Evaluation Competition (PAIEC) asks entrants to predict whether AI systems will answer items correctly on benchmarks excluded from development, with at most 31 acquired responses per system--benchmark pair.
+Its interface makes the correctness labels acquired for \emph{other} systems on the same benchmark available at prediction time.
+We use a test-time hierarchical item response model to estimate item difficulty, benchmark level and system ability from these sparse observations, with a budget-paced acquisition rule that favours items whose outcome no system has revealed yet.
+In benchmark-held-out simulations with one binary response per acquisition, an embedding-free proxy of our submission achieves Brier area under the learning curve (ALC) of \aStdSix{} under standard sampling and \aHighSix{} under high item overlap. This improves on a Beta-smoothed pair mean by \pStdSixVsBeta{} and \pHighSixVsBeta{}, and on the official Empirical Mean baseline by \pStdSixVsEM{} and \pHighSixVsEM{}.
+In a controlled study with random acquisition and a held-out prior, giving the same predictor the labels of nine partner systems that share the item set improves the focal system's ALC by \ovPartTen{} \ovPartCITen{}, of which shared item effects account for \ovItemTen{}. With no partner systems, there is no such evidence. For isolated pairs, the advantage over Beta smoothing is uncertain, while categorical item features still help.
+We provide the competition package, simulator and all experiment outputs.
+\end{abstract}
+
+%=====================================================================
+\section{Introduction}
+%=====================================================================
+Suppose the correctness label of system $B$ on item~$j$ of a new benchmark has been revealed, and system $A$'s response to the same item is about to be scored. If $B$ failed, that is evidence that the item is hard, for $A$ as well. The PAIEC protocol makes $B$'s label available when $A$ is predicted \citep{paiec2026}. This report asks how much such cross-system evidence is worth, how to use it, and when it disappears.
+
+PAIEC turns performance prediction \citep{ruan2024observational,pacchiardi2025predictaboard,zhou2025adele,truong2025amortized} into a demanding test. The hidden benchmarks were assigned to a private pool before curation, so their level and item effects cannot be learned offline. For each sampled system--benchmark pair, items arrive one at a time and the participant may reveal up to 31 labels. Predictions on a disjoint evaluation pool are scored by the Brier score \citep{brier1950} at six label budgets.
+In the public training data, most of the variance of per-cell success rates lies within system--benchmark pairs (\cref{sec:data}), which motivates modelling item and system$\times$item effects and not only a per-pair rate.
+
+Classical item response theory (IRT) \citep{rasch1960,lord1980} separates item difficulty from system ability, and recent work uses it to compress or adaptively run benchmarks \citep{polo2024tiny,truong2025amortized,hofmann2025fluid}. Those methods calibrate items on many systems offline. Here, the benchmark and item effects of the private pool have to be estimated online, from a few hundred labels spread over a handful of systems.
+
+\needspace{6\baselineskip}
+\paragraph{Contributions.}
+\begin{itemize}
+  \item \textbf{Model and acquisition} (\cref{fig:overview}, \cref{sec:method}). A test-time hierarchical logistic model with benchmark, system, pair, item and item-category effects, refitted on all revealed labels whenever they change, with a budget-paced uncertainty rule and a coverage term for items not yet revealed for any system. It runs on CPU with one 118M-parameter open encoder.
+  \item \textbf{Controlled evidence on when cross-system labels help} (\cref{sec:results}). A fixed-target study varies the number of partner systems sharing a benchmark's items and separates the value of partner evidence from that of shared item effects. Stress tests cover standard, high-overlap and sparse sampling against two cheap shrinkage baselines, with benchmark-bootstrap intervals for the key comparisons.
+  \item \textbf{Replayable evaluation and data findings} (\cref{sec:validation,sec:data}). A protocol simulator with one-response reveals, a list of its differences from the hosted evaluator, an analysis of official-score variability, and findings on subject identity and item overlap in the public data.
+\end{itemize}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figs/standalone_overview.pdf}
+  \caption{\textbf{Two evidence paths and the pipeline.} \emph{Left:} on a benchmark never seen in development, the prediction for system $A$ on item $j$ combines $A$'s own revealed labels (blue row, which inform its ability) with other systems' revealed labels on the same item (orange column, which inform the item's difficulty). \emph{Right:} public data fit only a base logit and select hyperparameters in simulation. Online, the model is refitted on all revealed labels, predicts with its posterior variance, and the acquisition rule decides which streamed items to reveal.}
+  \label{fig:overview}
+\end{figure}
+
+%=====================================================================
+\section{Task and protocol}\label{sec:task}
+%=====================================================================
+A \emph{subject} $s$ is a dictionary describing a system (model name, provider, dates, harness, harness version, reasoning effort, free-form features). An \emph{item} $i$ is a dictionary (content, features, interactors, benchmark $b(i)$). The label $y_{si}\in\{0,1\}$ records whether the response was correct, and the target is $p_{si}=\Pr(y_{si}=1)$.
+Every sampled pair $(s,b)$ has at least 80 distinct items, which are split at random into an acquisition and an evaluation pool of equal size. All recorded responses of an item stay in the same pool. Between checkpoints, acquisition items arrive one at a time, and \texttt{acquisition\_function(input, prediction, labeled, context)} decides whether to reveal one binary label. The context gives \texttt{labels\_remaining} (out of 31 for the whole run) and \texttt{items\_remaining}.
+At each checkpoint $k\in\{0,1,3,7,15,31\}$ (the number of labels acquired per pair), \texttt{predict(input, labeled)} is called for every evaluation target with $\Lb_k$, the labels revealed so far for \emph{all} pairs. Identical inputs reuse one prediction.
+The splits are per pair, so an item in $A$'s evaluation pool can be in $B$'s acquisition pool, and revealing $B$'s label on it is within the rules.
+The score is the Brier area under the learning curve on a $\log_2(1+k)$ axis,
+\begin{equation}\label{eq:alc}
+  \ALC = 0.1\,\bar B_0 + 0.2\,(\bar B_1+\bar B_3+\bar B_7+\bar B_{15}) + 0.1\,\bar B_{31},
+  \qquad \bar B_k = \frac{1}{|\mathcal P|}\sum_{(s,b)\in\mathcal P} \mathrm{Brier}_{sb}(k),
+\end{equation}
+where each pair's Brier score averages over all recorded responses of its evaluation items, and pairs carry equal weight. A constant $0.5$ scores $0.25$. The official \emph{Empirical Mean} baseline \citep{paiecbaseline2026} predicts the pair's observed success rate, or $0.5$ without labels.
+
+%=====================================================================
+\section{Public data}\label{sec:data}
+%=====================================================================
+We used the core tables of the public measurement-db \citep{measurementdb2026}. Of 92.6M response rows over 281 benchmarks, 159 benchmarks have binary item-level responses (68.6M responses). The Brier score of a (subject, item) cell with $n$ responses and $k$ successes, $(np^2-2pk+k)/n$, depends only on $(n,k)$, so we aggregate losslessly to 31.8M cells (\cref{app:data}).
+\textbf{Within-pair variation dominates.} Across evaluation-eligible pairs, 72\% of the variance of empirical cell success rates lies within pairs, 19\% between benchmarks and 9\% between subjects within a benchmark. The within-pair share includes item difficulty, subject$\times$item interaction and finite-repeat noise.
+\textbf{Items are widely shared before sampling.} For 96\% of eligible pairs (pair-weighted), the median item was answered by at least five other subjects, and the median benchmark's subject$\times$item matrix is 92\% dense. This is availability in the public data, not the coverage a sampled draw realises after acquisition. Other entrants report hidden formative draws of about nine pairs, often one per benchmark \citep{brierrabbit2026,doctawho2026}, which we treat as context only.
+\textbf{Subject identity needs the full dictionary.} Keying subjects by (name, harness, version, effort) merges at least half of the subjects in 72 of 159 benchmarks. In MMLU, 150 subjects have empty name and harness fields and differ only in \texttt{subject\_features\_extra}. Our package keys subjects by the full dictionary.
+
+%=====================================================================
+\section{Method}\label{sec:method}
+%=====================================================================
+\paragraph{Predictor.}
+A prediction for $(s,i)$ on benchmark $b$ draws on three kinds of revealed labels: the pair's own labels (ability on $b$), other systems' labels on $b$ (the benchmark's level), and other systems' labels on item $i$ or on items of the same category (difficulty). Given the revealed cells $\{(s,i,n_{si},k_{si})\}$ in $\Lb_k$, we fit
+\begin{equation}\label{eq:model}
+  \logit p_{si} \;=\; a\,\mu \;+\; u_{b} \;+\; t_{s} \;+\; v_{sb} \;-\; w_{bi} \;+\; \sum_{\tau\in T(i)} \big(f_{b\tau} + g_{sb\tau}\big),
+\end{equation}
+with independent zero-mean Gaussian priors on the benchmark level $u_b$, system offset $t_s$, pair offset $v_{sb}$, item difficulty $w_{bi}$ (items are scoped by benchmark), category effect $f_{b\tau}$ and system$\times$category effect $g_{sb\tau}$. Prior scales are in \cref{app:hp}.
+$\mu$ is a scalar base logit, the mean logit of the public training data (in simulation, of the training folds), scaled by $a$.
+$T(i)$ holds benchmark-scoped categorical tokens: \texttt{key=value} pairs from \texttt{item\_features} and \texttt{interactors} (identifier-like keys removed), coarse format buckets (length, lines, options, code, math), and template tokens (first four and last three words of the text). The term $g_{sb\tau}$ mirrors the ``user$\times$tag accuracy'' features of knowledge-tracing competitions \citep{riiid2021,wang2021eedi}.
+Cells enter a binomial likelihood with an effective count cap $n_{\max}$: successes and trials are scaled by $\min(n,n_{\max})/n$.
+
+\paragraph{Inference and prediction.}
+We compute the MAP estimate with 12 sweeps of blockwise Newton updates, each using the exact gradient and a diagonal curvature. Updates of multi-membership token effects are damped by the row's token count. The model is refitted whenever the revealed list changes, and the fit is cached within a worker for repeated calls with the same list.
+Each effect's posterior variance is approximated by its inverse diagonal curvature (a diagonal Laplace approximation), or by its prior variance if the group has no labels.
+Predictions use the probit approximation to the logistic--Gaussian integral \citep{mackay1992}, $\hat p=\sigma\big(m/\sqrt{1+c\,s^2}\big)$, where $m$ and $s^2$ sum the posterior means and variances and $c$ is a tuned variance adjustment. Low-budget predictions therefore stay near $0.5$.
+For an item without labels, $w_{bi}$ is borrowed from labelled items of the same benchmark through a sharp \texttt{multilingual-e5-small} embedding kernel \citep{wang2024me5} (\cref{app:hp}).
+
+\paragraph{Acquisition.}
+The Fisher information of a Bernoulli label is $p(1-p)$. With labels remaining, we reveal item $j$ for pair $(s,b)$ iff
+\begin{equation}\label{eq:acq}
+  1 - 4\hat p_{sj}(1-\hat p_{sj})\,e^{-\beta\min(n_j,3)} \;\le\; \gamma\cdot \texttt{labels\_remaining}/\texttt{items\_remaining},
+\end{equation}
+always once $\texttt{items\_remaining}\le\texttt{labels\_remaining}$, and never once no labels remain. The right-hand side is the remaining labelling rate, so the threshold relaxes when the budget is under-spent, as in budgeted stream-based active learning \citep{fujii2016budgeted}.
+$n_j$ counts labels already revealed on item $j$ for \emph{any} system. A first label on an item informs every pair whose evaluation pool contains it, while later labels add less, and the coverage factor encodes this. We use $\gamma=\beta=1$.
+
+\paragraph{Selected configuration.}
+The selected package (\texttt{v6}, Codabench submission 1031141) implements \cref{eq:model,eq:acq} without the known-name offset, with embedding propagation, item tokens and the coverage term, and declares the e5 encoder in \texttt{models.txt}. If the encoder cannot be loaded, it falls back to the same model without propagation. \Cref{app:hp} lists the configuration and the package hash.
+
+%=====================================================================
+\section{Evaluation methodology}\label{sec:validation}
+%=====================================================================
+\paragraph{Simulator.}
+Our simulator replays the protocol on public data: per-pair 50/50 splits, streamed acquisition with the official context, $\Lb$ spanning all pairs, the six checkpoints, response-weighted Brier and equal pair weights.
+An acquisition reveals \emph{one} binary response, drawn once per candidate from the cell's empirical success fraction and shared by all methods. Evaluation cells keep all their responses.
+In the main comparison, benchmarks are held out by 5-fold benchmark-level cross-validation: the base logit is fitted on training folds only, and all methods see identical pairs, streams and draws. Intervals resample whole benchmarks (10{,}000 draws).
+The same folds were used for development and hyperparameter search, so these are development-set cross-validation results, not an untouched test.
+The main runs use an \emph{embedding-free proxy} of \texttt{v6}: the same model with derived text and template tokens, without embedding propagation.
+
+\paragraph{Sampling regimes.}
+How the organisers sample systems is not public, so we bracket it with stress tests.
+\emph{Standard}: $\le$20 random subjects per benchmark, pools capped at 200 acquisition and 100 evaluation items (\nStd{} pairs, \nbStd{} benchmarks).
+\emph{High overlap}: per benchmark, 100 items drawn from the 200 most-answered, and up to 10 subjects that answered all of them (\nHigh{} pairs, \nbHigh{} benchmarks).
+\emph{Sparse}: the same construction with one or two subjects per benchmark (\nSpOne{} pairs on \nbSpOne{} benchmarks; \nSpTwo{} pairs on \nbSpTwo{} benchmarks).
+
+\paragraph{Controlled overlap study.}
+Separately, we select the \ovNb{} public benchmarks on which ten subjects answered a common set of 100 items, fix one focal subject's split, stream and one-response draws, and add 1, 3 or 9 partner subjects. Acquisition is the evaluator's random rule, so every predictor sees the same trajectory. The base logit is fitted on the other benchmark folds. A replicate repeats the selection with a different seed.
+
+\paragraph{Differences from the hosted evaluator.}
+The metric, evidence structure and context are matched. Remaining differences:
+(i) the simulator keys items by id, while the package keys them by content, features and interactors, so duplicated inputs pool only in the package;
+(ii) simulator runs omit interactor tokens;
+(iii) the simulator's acquisition policy refits every 100 labels and omits token effects, while the package refits at every call;
+(iv) the main runs omit embedding propagation (\cref{app:sim});
+(v) the sampling design is a proxy.
+Revealing the whole response cell instead of one response changes the Empirical Mean baseline by 0.0017 ALC in both main regimes, more than several component effects, so all main results use one-response reveals.
+
+\paragraph{Official formative feedback.}
+Each official formative evaluation scores a newly sampled hidden subset \citep{paiec2026}. Four uploads of the identical v3 package scored 0.170, 0.192, 0.176 and 0.200 (\cref{app:noise}). Single formative scores therefore cannot rank close variants, and we used them only to check that packages run.
+
+%=====================================================================
+\section{Results}\label{sec:results}
+%=====================================================================
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figs/overlap.pdf}
+  \caption{\textbf{Partner evidence helps more as more systems share the items.} Controlled study on \ovNb{} benchmarks where ten systems answered a common set of 100 items. The focal pair's split, stream and reveals are fixed, acquisition is random, and the base logit is held out. \emph{(a)} Focal-pair ALC of the same predictor given only the focal pair's labels, all labels with item effects suppressed, and all labels. \emph{(b)} Paired ALC reductions with benchmark-bootstrap 95\% intervals: from all partner evidence, and the part due to shared item effects. Labels give the number of systems; the x-axis is coverage at budget 31, the share of focal evaluation items revealed for at least one partner.}
+  \label{fig:overlap}
+\end{figure}
+
+\paragraph{Controlled overlap study.}
+\Cref{fig:overlap} isolates cross-system evidence with the predictor held fixed. With one system there is no partner evidence: by construction, the focal-only and all-label predictions coincide (\ovPartOne{}).
+With two systems, \ovCovTwo\% of the focal pair's evaluation items have been revealed for the partner by budget 31, and partner evidence improves ALC by \ovPartTwo{} \ovPartCITwo{}.
+The gain grows across the tested levels: \ovPartFour{} \ovPartCIFour{} with four systems (\ovCovFour\% coverage) and \ovPartTen{} \ovPartCITen{} with ten (\ovCovTen\%).
+Shared item effects account for \ovItemTwo{} \ovItemCITwo{}, \ovItemFour{} \ovItemCIFour{} and \ovItemTen{} \ovItemCITen{} of this, and the remainder comes from the shared benchmark level.
+The replicate selection gives \ovPartTenB{} \ovPartCITenB{} and \ovItemTenB{} \ovItemCITenB{} at ten systems.
+Prediction alone produces these gains, since acquisition is identical across predictors.
+
+\begin{table}[t]
+  \caption{\textbf{Brier ALC in the protocol simulator} (one-response reveals, benchmark-held-out folds; lower is better). Brackets: benchmark-bootstrap 95\% intervals. The model rows are embedding-free proxies; the last row is the selected configuration (\texttt{v6}).}
+  \label{tab:main}
+  \centering\footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}lllll@{}}
+    \toprule
+    Method & Standard & High overlap & Sparse, 2 sys. & Sparse, 1 sys. \\
+    \midrule
+    Constant 0.5                              & 0.2500 & 0.2500 & 0.2500 & 0.2500 \\
+    Empirical Mean (official)                 & \aStdEM \ {\scriptsize\ciStdEM} & \aHighEM \ {\scriptsize\ciHighEM} & \aSpTwoEM & \aSpOneEM \\
+    Beta(1,1) pair mean                       & \aStdBeta \ {\scriptsize\ciStdBeta} & \aHighBeta \ {\scriptsize\ciHighBeta} & \aSpTwoBeta & \aSpOneBeta \\
+    Pair mean shrunk to bench.\ rate          & \aStdEB \ {\scriptsize\ciStdEB} & \aHighEB \ {\scriptsize\ciHighEB} & \aSpTwoEB & \aSpOneEB \\
+    \midrule
+    Hierarchical model, random acq.           & \aStdHier & \aHighHier & \aSpTwoHier & \aSpOneHier \\
+    \quad + uncertainty acquisition           & \aStdHierU & \aHighHierU & \aSpTwoHierU & \aSpOneHierU \\
+    \quad + item tokens                       & \aStdTok & \aHighTok & \aSpTwoTok & \aSpOneTok \\
+    \quad + coverage term (\texttt{v6} proxy) & \aStdSix \ {\scriptsize\ciStdSix} & \aHighSix \ {\scriptsize\ciHighSix} & \aSpTwoSix & \aSpOneSix \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Main comparison.}
+\Cref{tab:main} reports absolute ALC. The benchmark-rate baseline shrinks the pair's own success rate towards the rate of all labels revealed on the benchmark: with $S$ successes in $N$ benchmark labels and $s$ in the pair's own $n$, $p_0=(S+2)/(N+4)$ and $\hat p=(s+2p_0)/(n+2)$.
+Much of the gain over the official baseline comes from shrinkage alone. With one label, the Empirical Mean predicts exactly 0 or 1 and scores worse than a constant at budget 1 (\cref{fig:curves}).
+Against the strongest shrinkage baseline in each regime, the \texttt{v6} proxy improves ALC by \pStdSixVsEB{} \pciStdSixVsEB{} (standard, benchmark rate), \pHighSixVsEB{} \pciHighSixVsEB{} (high overlap, benchmark rate) and \pSpTwoSixVsBeta{} \pciSpTwoSixVsBeta{} (two systems, Beta).
+With a single system per benchmark the comparison with the Beta pair mean is inconclusive (\pSpOneSixVsBeta{} \pciSpOneSixVsBeta{}).
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figs/curves.pdf}
+  \caption{\textbf{Brier score at each checkpoint} (mean over pairs; one-response reveals; 1{,}738 pairs in the standard and 891 in the high-overlap regime). Checkpoints are spaced on the official $\log_2(1+k)$ axis. All methods start near the constant reference at budget 0 because the benchmarks are unseen. The Empirical Mean spikes at budget 1, shrinkage (Beta) removes the spike, and the item response model keeps improving as labels accumulate, most strongly with high overlap.}
+  \label{fig:curves}
+\end{figure}
+
+\begin{table}[t]
+  \caption{\textbf{Component effects} (paired ALC differences, negative is better, benchmark-bootstrap 95\% intervals). Each row adds one component to the configuration above it in \cref{tab:main}. ``Active acquisition'' keeps the \texttt{v6}-proxy predictor and compares its acquisition rule with random acquisition.}
+  \label{tab:components}
+  \centering\footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    Component & Standard & High overlap & Sparse, 2 sys. & Sparse, 1 sys. \\
+    \midrule
+    Uncertainty acquisition & \makecell{\dStdUnc\\[-1pt] {\scriptsize\dciStdUnc}} & \makecell{\dHighUnc\\[-1pt] {\scriptsize\dciHighUnc}} & \makecell{\dSpTwoUnc\\[-1pt] {\scriptsize\dciSpTwoUnc}} & \makecell{\dSpOneUnc\\[-1pt] {\scriptsize\dciSpOneUnc}} \\
+    Item tokens & \makecell{\dStdTokens\\[-1pt] {\scriptsize\dciStdTokens}} & \makecell{\dHighTokens\\[-1pt] {\scriptsize\dciHighTokens}} & \makecell{\dSpTwoTokens\\[-1pt] {\scriptsize\dciSpTwoTokens}} & \makecell{\dSpOneTokens\\[-1pt] {\scriptsize\dciSpOneTokens}} \\
+    Coverage term & \makecell{\dStdCov\\[-1pt] {\scriptsize\dciStdCov}} & \makecell{\dHighCov\\[-1pt] {\scriptsize\dciHighCov}} & \makecell{\dSpTwoCov\\[-1pt] {\scriptsize\dciSpTwoCov}} & \makecell{\dSpOneCov\\[-1pt] {\scriptsize\dciSpOneCov}} \\
+    \makecell[l]{Active acquisition\\(\texttt{v6}-proxy predictor)} & \makecell{\dStdAct\\[-1pt] {\scriptsize\dciStdAct}} & \makecell{\dHighAct\\[-1pt] {\scriptsize\dciHighAct}} & \makecell{\dSpTwoAct\\[-1pt] {\scriptsize\dciSpTwoAct}} & \makecell{\dSpOneAct\\[-1pt] {\scriptsize\dciSpOneAct}} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Which components matter where.}
+\Cref{tab:components} separates the additions.
+Item tokens help in every regime, including isolated pairs, because category effects are learned from the pair's own labels as well as from others'.
+The coverage term needs partners: it helps with high overlap (\dHighCov{} \dciHighCov{}) and leaves decisions unchanged when a benchmark has a single system.
+Active acquisition helps when partners exist (\dHighAct{} \dciHighAct{} with high overlap); for isolated pairs the estimate is \dSpOneAct{} \dciSpOneAct{}. Without partner evidence, choosing uncertain items may give a less representative sample of the pair's ability than random choice.
+A gate that uses the evaluator's random rule until another system has a label on the benchmark did not help consistently (\cref{app:negative}).
+
+\paragraph{Negative results.}
+Several additions did not help (\cref{app:negative}).
+The tested cross-benchmark regressions from e5 or Qwen3 embeddings and format features to item easiness or benchmark base rate reached leave-one-benchmark-out $R^2\le0.04$, consistent with evidence that embedding-based difficulty transfers within but not across scenarios \citep{shang2026contextual}. Budget-0 Brier therefore stays near 0.25.
+A GBM stacker, per-budget Platt scaling, low-rank skills with benchmark loadings, V-optimal acquisition, an item-discrimination residual, a name$\times$benchmark effect and a two-configuration ensemble were neutral or harmful.
+In an offline pilot (NVIDIA API, nine heterogeneous public benchmarks), a 4B open model's difficulty ratings of 450 sampled items had a within-benchmark rank correlation of 0.06. Larger models completed only 35 and 90 ratings under rate limits, too few to interpret.
+
+\paragraph{Official results.}
+Thirteen formative runs of nine development packages scored 0.146--0.209, and the four identical v3 runs spanned 0.170--0.200 (\cref{app:noise}). These runs cannot separate small package effects from resampling variability, so we selected \texttt{v6} (submission 1031141, one formative run at 0.209) on the simulator evidence: among the uploaded packages it is the best configuration in both main regimes. Its common-subset summative score is determined by the organisers.
+
+%=====================================================================
+\section{Related work}
+%=====================================================================
+\textbf{IRT and benchmark amortisation.} IRT models \citep{rasch1960,lord1980} compress benchmarks to informative subsets \citep{polo2024tiny}, amortise difficulty calibration from item text \citep{truong2025amortized}, and drive adaptive testing of language models \citep{hofmann2025fluid,krumdick2026}. These items are calibrated on many systems offline, and IRT estimates can be unreliable with few or heterogeneous systems \citep{jiang2026trust}. Our goal is predictive Brier improvement rather than recovery of true latent parameters.
+\textbf{Instance-level performance prediction.} Assessors predict per-instance success from system and item features \citep{pacchiardi2025predictaboard,zhou2025adele}, and observational scaling laws predict aggregate scores from low-dimensional abilities \citep{ruan2024observational}. Without benchmark-specific labels, our item-level predictions on unseen benchmarks stay near chance, consistent with \citet{shang2026contextual}.
+\textbf{PAIEC entries.} Other public entries also use hierarchical response models for the benchmark-level cold start \citep{doctawho2026,brierrabbit2026}. Our distinct contribution is the fixed-target study of when partner evidence helps, with a sparse boundary and cheap baselines.
+\textbf{Adaptive and label-efficient evaluation.} Active testing \citep{kossen2021active,kossen2022ase,berrada2025scaling} and prediction-oriented active learning \citep{bickfordsmith2023epig} select labels for estimation or prediction, and computerised adaptive testing selects by Fisher information \citep{vanderlinden2010,ghosh2021bobcat}. Our rule is a streaming, budget-paced variant with a coverage term for evidence shared across pairs.
+
+%=====================================================================
+\section{Limitations and conclusion}
+%=====================================================================
+\textbf{Limitations.}
+The hidden overlap distribution is unknown, and isolated pairs, where partner evidence cannot help, may be common.
+The main results use an embedding-free proxy of the package, and repeated responses, duplicated inputs and acquisition-time predictions differ between the simulator and the package (\cref{sec:validation}).
+All configurations were chosen on the public benchmark pool that the evaluation folds use.
+The controlled study covers \ovNb{} benchmarks with ten complete subjects and two selection seeds.
+Text tokens and embeddings ignore images, which matter in about 30 mostly visual public benchmarks, and budget-0 predictions stay near 0.25.
+
+\textbf{Conclusion.}
+On benchmarks excluded from development, the revealed labels of other systems on the same items are legitimate evidence. A small test-time item response model turns them into better Brier predictions, with gains that increase with item coverage and vanish for isolated pairs. Shrinkage, item categories and budget-paced acquisition supply the rest. Measuring these effects required a simulator with one-response reveals, strong cheap baselines and benchmark-level intervals, because single formative scores were too noisy to guide the choices.
+
+\paragraph{Reproducibility and disclosures.}
+Code and results are released at \url{https://github.com/VaibhavKanojia3773/items-are-shared-paiec}; the same files form the OpenReview supplementary archive, which contains the submitted ZIP, a manifest with full hashes, the simulator, all experiment and figure scripts, the logged outputs behind every table and figure, and instructions (\cref{app:repro}).
+Pretrained model: \texttt{intfloat/multilingual-e5-small} (MIT licence), frozen, for item embeddings. Data: the public measurement-db only. No LLM is called at scoring time. The offline rating pilot used open models through the NVIDIA API on public items only and did not influence the submitted method.
+Compute: a laptop CPU (Python 3.10, NumPy 2.2, pandas 2.3) and Kaggle CPU/T4 sessions. A dictionary-interface replay of 19 public pairs took 65\,s on the laptop CPU without the encoder. Earlier encoder-enabled replays of 24 pairs took 68--93\,s on Kaggle.
+The code, experiments and this report were developed with Claude Code (Anthropic) as an AI coding and writing assistant. The author directed the work and checked the claims.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+%=====================================================================
+\section{Selected configuration}\label{app:hp}
+%=====================================================================
+\begin{table}[H]
+  \caption{\textbf{Selected configuration} (\texttt{v6}, Codabench submission 1031141; full SHA-256 values in \texttt{MANIFEST.md} of the supplement). Values were chosen by random and local search over more than 200 configurations in the standard simulator and checked in the high-overlap regime. A later 202-configuration search over both regimes found no improvement beyond selection noise.}
+  \label{tab:hp}
+  \centering\footnotesize
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    Setting & Value & Setting & Value \\
+    \midrule
+    scale $a$ on $\mu$ & 0.4 & variance adjustment $c$ & 0.1 \\
+    $\sigma_u,\ \sigma_t,\ \sigma_v,\ \sigma_w$ & 1.4, 0.5, 1.0, 2.2 & effective count cap $n_{\max}$ & 1 \\
+    $\sigma_f,\ \sigma_g$ & 0.7, 0.3 & Newton sweeps & 12 \\
+    kernel $\tau_w$, shrinkage $\kappa_w$ & 0.02, 0.3 & acquisition $\gamma$, coverage $\beta$ & 1.0, 1.0 \\
+    name-based ability prior & off & name pooling of $t_s$ & off \\
+    item key & content+features+interactors & subject key & full dictionary \\
+    probability clip & $[0.005, 0.995]$ & encoder & e5-small (118M) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+For an item without labels, embedding propagation sets $\hat w_{bj} = \sum_i k_{ji}\hat w_{bi}/(\kappa_w+\sum_i k_{ji})$ over labelled items $i$ of the same benchmark, with $k_{ji}=\exp((\cos(e_j,e_i)-1)/\tau_w)$, and variance $\sigma_w^2\,\kappa_w/(\kappa_w+\sum_i k_{ji})$. The acquisition rule uses the package's own prediction, including token effects. Predictions are clipped to $[0.005, 0.995]$. A fitted model is reused for every call with an identical revealed list.
+
+%=====================================================================
+\section{Simulator details and embedding runs}\label{app:sim}
+%=====================================================================
+Earlier embedding-enabled runs (whole-cell reveals; standard 1{,}738 pairs, high overlap 891 pairs; run IDs A1, A2) gave the \texttt{v6} configuration 0.1942 and 0.1847, against 0.2438 and 0.2416 for the Empirical Mean.
+Removing embedding propagation changed ALC by $-0.0002$ $[-0.0008, +0.0005]$ and $-0.0001$ $[-0.0005, +0.0003]$: a small effect whose intervals span zero, which supports the embedding-free proxies.
+Removing tokens cost $+0.0019$ and $+0.0015$. Without tokens, propagation alone was worth $-0.0022$ (standard), so it remains useful on benchmarks with few informative categories. This is separate from the runtime fallback when the encoder cannot load.
+The simulator's acquisition policy refits every 100 labels and scores a pair's acquisition pool in one vectorised call. The embedding subset holds at most 10{,}000 items per benchmark (597{,}441 items).
+Seeds: pair sampling uses the fold index, streams $100+$fold, and one-response draws $910+$fold. The overlap study uses selection seeds 0 and 1.
+
+%=====================================================================
+\section{Public data details}\label{app:data}
+%=====================================================================
+\begin{table}[H]
+  \caption{\textbf{Public training data} (measurement-db core tables, main branch, downloaded 2 November 2026). The left column counts the full release or the binary item-level subset; the right column counts subjects and pairs within that subset, keyed by the full subject dictionary.}
+  \label{tab:data}
+  \centering\footnotesize
+  \begin{tabular}{@{}lr@{\hspace{2.5em}}lr@{}}
+    \toprule
+    Response rows, all 281 benchmarks & 92.6M & Distinct items with responses & 3.68M \\
+    Benchmarks with binary item responses & 159 & Subjects (full dictionary) & 14{,}529 \\
+    Binary responses kept & 68.6M & Distinct model names & 674 \\
+    Aggregated cells $(s,i,n,k)$ & 31.8M & Eval-eligible pairs ($\ge$80 items) & 12{,}972 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+The variance decomposition uses empirical success rates of eligible cells: benchmark means, subject-within-benchmark means and within-pair residuals.
+In the public sample, 7.8\% of targets (pair-weighted) belong to cells with more than one response, and the Brier floor from repeated responses, computed from these empirical cells, is 0.004. Some benchmarks contain identical inputs under different item ids (babilong: 526k ids, 16.9k distinct inputs), which a content-keyed model pools. Interactors are non-empty in six attack or agent benchmarks. The aggregation and EDA scripts are \texttt{scripts/build\_tables.py} and \texttt{scripts/final\_eda.py}.
+
+%=====================================================================
+\section{Variability of official formative scores}\label{app:noise}
+%=====================================================================
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.62\linewidth]{figs/noise.pdf}
+  \caption{\textbf{Official formative scores are single draws of a resampled subset.} Thirteen runs of nine development packages. Four runs of the identical v3 package (blue) span 0.170--0.200; the selected \texttt{v6} run (orange) scored 0.209. The band is the pooled mean $\pm$1 SD, which mixes resampling and package effects.}
+  \label{fig:noise}
+\end{figure}
+The four identical v3 runs have mean 0.184 and sample SD 0.014. Assuming independent draws with this SD, a nominal 95\% interval of half-width 0.005 needs about 30 runs for one package's mean, and about 60 runs per package for the difference between two packages.
+
+%=====================================================================
+\section{Negative results}\label{app:negative}
+%=====================================================================
+\begin{table}[H]
+  \caption{\textbf{Ideas that did not help or were not adopted} (development runs with whole-cell reveals unless noted). $\Delta$ is the ALC change against the configuration without the idea (negative is better); other rows report the stated quantity. Run IDs refer to \texttt{logbooks/02\_experiments.md}.}
+  \label{tab:negative}
+  \centering\footnotesize
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    Idea & Regime (run) & Quantity & Outcome \\
+    \midrule
+    kNN text prior of item easiness across benchmarks & standard (E040) & absolute ALC & 0.268 \\
+    Ridge: text $\to$ item easiness or benchmark rate & LOBO (X1) & $R^2$ & $\le 0.04$ \\
+    GBM stacker on model outputs & standard & $\Delta$ & $+0.0012$ \\
+    Per-budget Platt calibration & standard & $\Delta$ & $+0.0003$ \\
+    Low-rank skills with benchmark loadings & standard & $\Delta$ & $\ge-0.0001$ \\
+    V-optimal acquisition & standard & $\Delta$ & $\approx0$ \\
+    Item-discrimination residual & high overlap (F-l5) & $\Delta$ & $\approx0$ \\
+    Name$\times$benchmark random effect & both (R5) & $\Delta$ & $\approx0$ \\
+    Two-configuration ensemble & high overlap (R5) & $\Delta$ & $+0.0002$ \\
+    Qwen3-Embedding-0.6B instead of e5 & standard (E050) & $\Delta$ & $+0.0002$ \\
+    Open-LLM difficulty ratings, 4B model & 9 benchmarks (R6) & rank correlation & 0.06 \\
+    \midrule
+    Known-name ability offset$^{\dagger}$ & high overlap (R7) & $\Delta$ & \dHighName{} {\tiny\dciHighName} \\
+    \quad known names only & high overlap (R7) & $\Delta$ & \dHighNameKnown{} {\tiny\dciHighNameKnown} \\
+    Overlap gate on acquisition$^{\ddagger}$ & sparse 1 / std.\ (R8) & $\Delta$ & \dSpOneGate{} / \dStdGate{} \\
+    & sparse 2 / high (R8) & $\Delta$ & \dSpTwoGate{} / \dHighGate{} \\
+    \bottomrule
+  \end{tabular}
+{\raggedright\footnotesize $^{\dagger}$Adds $a\,\theta_s$ to the base logit, the shrunken mean of benchmark-centred logits of the subject's \texttt{normalized\_name} over public benchmarks ($\theta_s=0$ for unseen names); one-response reveals, embedding-free, benchmark-bootstrap intervals. $^{\ddagger}$Uses the evaluator's random rule until another system has a label on the benchmark; tested with the name offset enabled; all four intervals include zero. Neither is part of the submitted package.\par}
+\end{table}
+
+%=====================================================================
+\section{Reproduction}\label{app:repro}
+%=====================================================================
+The repository \url{https://github.com/VaibhavKanojia3773/items-are-shared-paiec} (identical to the supplementary archive) lists every command in \texttt{README.md}.
+{\raggedright
+\begin{itemize}
+  \item \emph{Verify from bundled outputs} (minutes): \texttt{paper/scripts/analyze\_r7.py} recomputes every interval and writes \texttt{paper/results.tex} from the saved per-pair arrays; the figure scripts redraw \cref{fig:overlap,fig:curves,fig:noise}.
+  \item \emph{Recompute from raw data}: \texttt{scripts/download\_core.py} and \texttt{scripts/build\_tables.py} build the 31.8M-cell table; \texttt{paiec/evaluate.py -{}-single -{}-no\_provider -{}-methods \ldots} reproduces \cref{tab:main,tab:components} per regime (\texttt{-{}-formative 100 -{}-rows R}), method suffix \texttt{c1o} gives the gate runs, and \texttt{paiec/overlap.py -{}-seed 0/1} reproduces \cref{fig:overlap}.
+  \item \emph{Package}: \texttt{paiec/build\_submission.py} rebuilds an equivalent of the selected ZIP, which passes the official \texttt{check\_submission\_zip.py}.
+\end{itemize}
+}
+
+\end{document}

@@ -1,0 +1,29 @@
+[{"stream_name":"stdout","time":13.573649506,"data":"loaded 12,538,408 cells in 9s\n"}
+,{"stream_name":"stdout","time":18.436621364,"data":"item feature tokens for 465,613 items\n"}
+,{"stream_name":"stdout","time":45.355619138,"data":"fold 0 online0_prop@g1  pairs= 425 ALC=0.2061 curve=[0.2505 0.2166 0.2095 0.1986 0.1895 0.1825] (25s)\n"}
+,{"stream_name":"stdout","time":71.032716952,"data":"fold 0 online0_propf@g1 pairs= 425 ALC=0.2039 curve=[0.2505 0.2152 0.2075 0.1964 0.1859 0.1781] (26s)\n"}
+,{"stream_name":"stdout","time":101.96740349,"data":"fold 0 online0_propxf@g1 pairs= 425 ALC=0.2037 curve=[0.2505 0.2152 0.2074 0.1959 0.1858 0.1779] (31s)\n"}
+,{"stream_name":"stdout","time":119.521524854,"data":"fold 1 online0_prop@g1  pairs= 305 ALC=0.1929 curve=[0.2502 0.2032 0.1925 0.1834 0.1763 0.1674] (16s)\n"}
+,{"stream_name":"stdout","time":135.954234681,"data":"fold 1 online0_propf@g1 pairs= 305 ALC=0.1916 curve=[0.2502 0.203  0.1921 0.1817 0.1736 0.1646] (16s)\n"}
+,{"stream_name":"stdout","time":155.435448489,"data":"fold 1 online0_propxf@g1 pairs= 305 ALC=0.1919 curve=[0.2502 0.203  0.1924 0.1822 0.1746 0.1644] (19s)\n"}
+,{"stream_name":"stdout","time":179.758594606,"data":"fold 2 online0_prop@g1  pairs= 408 ALC=0.1945 curve=[0.2502 0.2031 0.1949 0.1876 0.1785 0.1664] (23s)\n"}
+,{"stream_name":"stdout","time":203.126833967,"data":"fold 2 online0_propf@g1 pairs= 408 ALC=0.1939 curve=[0.2502 0.2031 0.1956 0.1869 0.1765 0.1642] (23s)\n"}
+,{"stream_name":"stdout","time":231.269973438,"data":"fold 2 online0_propxf@g1 pairs= 408 ALC=0.1939 curve=[0.2502 0.2032 0.1953 0.1864 0.1772 0.1642] (28s)\n"}
+,{"stream_name":"stdout","time":246.066453728,"data":"fold 3 online0_prop@g1  pairs= 301 ALC=0.2067 curve=[0.25   0.221  0.2063 0.1995 0.1902 0.1831] (13s)\n"}
+,{"stream_name":"stdout","time":259.936504379,"data":"fold 3 online0_propf@g1 pairs= 301 ALC=0.2056 curve=[0.25   0.2198 0.2053 0.1977 0.1892 0.1816] (14s)\n"}
+,{"stream_name":"stdout","time":276.528073738,"data":"fold 3 online0_propxf@g1 pairs= 301 ALC=0.2055 curve=[0.25   0.2199 0.2059 0.1973 0.1889 0.1811] (17s)\n"}
+,{"stream_name":"stdout","time":291.607317637,"data":"fold 4 online0_prop@g1  pairs= 299 ALC=0.1752 curve=[0.25   0.1861 0.1737 0.1635 0.155  0.1452] (14s)\n"}
+,{"stream_name":"stdout","time":305.682244949,"data":"fold 4 online0_propf@g1 pairs= 299 ALC=0.1749 curve=[0.25   0.1866 0.174  0.1627 0.154  0.1441] (14s)\n"}
+,{"stream_name":"stdout","time":322.668409963,"data":"fold 4 online0_propxf@g1 pairs= 299 ALC=0.1750 curve=[0.25   0.1865 0.1739 0.163  0.1549 0.1439] (17s)\n"}
+,{"stream_name":"stdout","time":322.668535929,"data":"\n"}
+,{"stream_name":"stdout","time":322.668651733,"data":"=== pooled over folds (equal weight per pair) ===\n"}
+,{"stream_name":"stdout","time":322.669336187,"data":"online0_prop@g1  ALC=0.1958 curve=[0.2502 0.2066 0.1964 0.1875 0.1788 0.1698]\n"}
+,{"stream_name":"stdout","time":322.669931643,"data":"online0_propf@g1 ALC=0.1947 curve=[0.2502 0.2061 0.1959 0.186  0.1766 0.1672]\n"}
+,{"stream_name":"stdout","time":322.670533114,"data":"online0_propxf@g1 ALC=0.1947 curve=[0.2502 0.2061 0.1959 0.1859 0.177  0.167 ]\n"}
+,{"stream_name":"stderr","time":325.263936602,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":325.263970361,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":325.624079389,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":325.624105364,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":327.524784461,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":328.59077113,"data":"[NbConvertApp] Writing 275870 bytes to __results__.html\n"}
+]

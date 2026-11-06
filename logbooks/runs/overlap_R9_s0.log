@@ -1,0 +1,17 @@
+seed 0: benchmarks with 10 subjects sharing 100 items: 65
+systems= 1 coverage=0.000 full        focal ALC=0.2121
+systems= 1 coverage=0.000 no item     focal ALC=0.2118
+systems= 1 coverage=0.000 focal only  focal ALC=0.2121
+systems= 2 coverage=0.307 full        focal ALC=0.2061
+systems= 2 coverage=0.307 no item     focal ALC=0.2075
+systems= 2 coverage=0.307 focal only  focal ALC=0.2121
+systems= 4 coverage=0.668 full        focal ALC=0.2004
+systems= 4 coverage=0.668 no item     focal ALC=0.2046
+systems= 4 coverage=0.668 focal only  focal ALC=0.2121
+systems=10 coverage=0.965 full        focal ALC=0.1887
+systems=10 coverage=0.965 no item     focal ALC=0.2017
+systems=10 coverage=0.965 focal only  focal ALC=0.2121
+{"systems": 1, "coverage": 0.0, "partner evidence": [0.0, 0.0, 0.0], "item effects": [-0.0003209137588383994, -0.003945526990607122, 0.003356331330352572], "benchmark level": [0.0003209137588383994, -0.0033563313303525736, 0.003945526990607121]}
+{"systems": 2, "coverage": 0.3073846153846153, "partner evidence": [0.006026713097386284, 0.002953582143614359, 0.009049731221287874], "item effects": [0.0014834231975298447, -0.002043368047323855, 0.005007433126743181], "benchmark level": [0.00454328989985644, 0.0009398470947028248, 0.008258597661040711]}
+{"systems": 4, "coverage": 0.668, "partner evidence": [0.01169815436914906, 0.007085598453977428, 0.016153548284683385], "item effects": [0.004227626698725974, -0.00015218519675016268, 0.00867804841296605], "benchmark level": [0.00747052767042309, 0.003085922157175837, 0.012027672986975489]}
+{"systems": 10, "coverage": 0.9646153846153845, "partner evidence": [0.023428832444469548, 0.01722072323717714, 0.0297091597775895], "item effects": [0.01308503494342457, 0.007541910135862104, 0.01865696995806895], "benchmark level": [0.010343797501044982, 0.0055545879294621485, 0.015502320758894178]}

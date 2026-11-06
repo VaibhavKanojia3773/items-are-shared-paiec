@@ -1,0 +1,48 @@
+{
+ "args": {
+  "methods": "online_name_f@g1c1o,online_name_f",
+  "folds": 5,
+  "only_folds": "",
+  "max_subj": 20,
+  "max_acq": 200,
+  "max_eval": 100,
+  "hp": "{\"a\":0.4,\"s_u\":1.4,\"s_t\":0.5,\"s_v\":1.0,\"s_w\":2.2,\"c\":0.1,\"n_cap\":1.0,\"s_f\":0.7,\"s_g\":0.3}",
+  "single": true,
+  "no_provider": true,
+  "hp2": "{}",
+  "knn": "{}",
+  "emb": "/kaggle/input/**/emb_*.npy",
+  "subset": "",
+  "tag": "R8sp2",
+  "seed": 0,
+  "template": true,
+  "merged": false,
+  "formative": 100,
+  "rows": 200,
+  "tok": "both"
+ },
+ "summary": {
+  "online_name_f@g1c1o": {
+   "alc": 0.19780755769720096,
+   "curve": [
+    0.2491,
+    0.2192,
+    0.2002,
+    0.1866,
+    0.1759,
+    0.1652
+   ]
+  },
+  "online_name_f": {
+   "alc": 0.198382436811952,
+   "curve": [
+    0.2491,
+    0.2191,
+    0.2023,
+    0.1864,
+    0.1761,
+    0.1669
+   ]
+  }
+ }
+}

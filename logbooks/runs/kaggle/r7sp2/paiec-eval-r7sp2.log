@@ -1,0 +1,71 @@
+[{"stream_name":"stdout","time":11.029571953,"data":"loaded 12,538,408 cells in 7s\n"}
+,{"stream_name":"stdout","time":48.919947748,"data":"item feature tokens for 597,441 items\n"}
+,{"stream_name":"stdout","time":51.502698404,"data":"fold 0 const            pairs=  44 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (1s)\n"}
+,{"stream_name":"stdout","time":52.129933572,"data":"fold 0 emp_mean         pairs=  44 ALC=0.2508 curve=[0.25   0.3428 0.2674 0.2212 0.2013 0.1922] (1s)\n"}
+,{"stream_name":"stdout","time":52.692321868,"data":"fold 0 beta11           pairs=  44 ALC=0.2164 curve=[0.25   0.2254 0.2271 0.2105 0.198  0.1915] (1s)\n"}
+,{"stream_name":"stdout","time":53.254590466,"data":"fold 0 eb_bench         pairs=  44 ALC=0.2188 curve=[0.25   0.2269 0.2353 0.2119 0.1991 0.1918] (1s)\n"}
+,{"stream_name":"stdout","time":53.83415418,"data":"fold 0 online0          pairs=  44 ALC=0.2107 curve=[0.2505 0.2222 0.2179 0.2029 0.1934 0.1839] (1s)\n"}
+,{"stream_name":"stdout","time":54.624563697,"data":"fold 0 online0@g1       pairs=  44 ALC=0.2133 curve=[0.2505 0.229  0.2221 0.2034 0.194  0.1856] (1s)\n"}
+,{"stream_name":"stdout","time":55.655426251,"data":"fold 0 online0_f@g1     pairs=  44 ALC=0.2110 curve=[0.2505 0.2297 0.2235 0.2005 0.187  0.1781] (1s)\n"}
+,{"stream_name":"stdout","time":56.500771316,"data":"fold 0 online0_f        pairs=  44 ALC=0.2079 curve=[0.2505 0.22   0.2174 0.2003 0.1887 0.1761] (1s)\n"}
+,{"stream_name":"stdout","time":57.543071222,"data":"fold 0 online0_f@g1c1   pairs=  44 ALC=0.2098 curve=[0.2505 0.2297 0.2225 0.1983 0.1863 0.1743] (1s)\n"}
+,{"stream_name":"stdout","time":58.615292412,"data":"fold 0 online_name_f@g1c1 pairs=  44 ALC=0.2090 curve=[0.249  0.2276 0.2218 0.1981 0.1862 0.1735] (1s)\n"}
+,{"stream_name":"stdout","time":62.775455843,"data":"fold 1 const            pairs=  44 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (2s)\n"}
+,{"stream_name":"stdout","time":65.304558536,"data":"fold 1 emp_mean         pairs=  44 ALC=0.2165 curve=[0.25   0.3337 0.2086 0.1695 0.1661 0.1598] (3s)\n"}
+,{"stream_name":"stdout","time":67.887669833,"data":"fold 1 beta11           pairs=  44 ALC=0.1912 curve=[0.25   0.2223 0.1931 0.1695 0.1662 0.1599] (3s)\n"}
+,{"stream_name":"stdout","time":70.3951499,"data":"fold 1 eb_bench         pairs=  44 ALC=0.1872 curve=[0.25   0.2129 0.1877 0.1656 0.1651 0.1596] (3s)\n"}
+,{"stream_name":"stdout","time":72.97476352,"data":"fold 1 online0          pairs=  44 ALC=0.1856 curve=[0.2507 0.2118 0.1864 0.1662 0.1624 0.1513] (3s)\n"}
+,{"stream_name":"stdout","time":75.719800373,"data":"fold 1 online0@g1       pairs=  44 ALC=0.1834 curve=[0.2507 0.2029 0.1816 0.1683 0.1612 0.1556] (3s)\n"}
+,{"stream_name":"stdout","time":78.76211198,"data":"fold 1 online0_f@g1     pairs=  44 ALC=0.1756 curve=[0.2507 0.1933 0.1728 0.1604 0.1529 0.1464] (3s)\n"}
+,{"stream_name":"stdout","time":81.59611641,"data":"fold 1 online0_f        pairs=  44 ALC=0.1790 curve=[0.2507 0.2049 0.1799 0.16   0.1534 0.1428] (3s)\n"}
+,{"stream_name":"stdout","time":84.634720012,"data":"fold 1 online0_f@g1c1   pairs=  44 ALC=0.1761 curve=[0.2507 0.1929 0.1737 0.1604 0.1553 0.1458] (3s)\n"}
+,{"stream_name":"stdout","time":87.681256497,"data":"fold 1 online_name_f@g1c1 pairs=  44 ALC=0.1748 curve=[0.2438 0.191  0.1731 0.1603 0.155  0.145 ] (3s)\n"}
+,{"stream_name":"stdout","time":89.654675591,"data":"fold 2 const            pairs=  50 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (0s)\n"}
+,{"stream_name":"stdout","time":90.047093343,"data":"fold 2 emp_mean         pairs=  50 ALC=0.2396 curve=[0.25   0.3515 0.2341 0.2004 0.1936 0.1872] (0s)\n"}
+,{"stream_name":"stdout","time":90.392509468,"data":"fold 2 beta11           pairs=  50 ALC=0.2098 curve=[0.25   0.2283 0.2135 0.1963 0.1922 0.1869] (0s)\n"}
+,{"stream_name":"stdout","time":90.748272108,"data":"fold 2 eb_bench         pairs=  50 ALC=0.2091 curve=[0.25   0.2278 0.2101 0.1966 0.1926 0.1869] (0s)\n"}
+,{"stream_name":"stdout","time":91.146056871,"data":"fold 2 online0          pairs=  50 ALC=0.2053 curve=[0.2501 0.2237 0.2068 0.1939 0.1873 0.1792] (0s)\n"}
+,{"stream_name":"stdout","time":91.807273034,"data":"fold 2 online0@g1       pairs=  50 ALC=0.2038 curve=[0.2501 0.2248 0.204  0.193  0.1838 0.1762] (1s)\n"}
+,{"stream_name":"stdout","time":92.771922014,"data":"fold 2 online0_f@g1     pairs=  50 ALC=0.2009 curve=[0.2501 0.2228 0.2002 0.191  0.1798 0.1712] (1s)\n"}
+,{"stream_name":"stdout","time":93.445416274,"data":"fold 2 online0_f        pairs=  50 ALC=0.2023 curve=[0.2501 0.2207 0.2037 0.1917 0.1835 0.1744] (1s)\n"}
+,{"stream_name":"stdout","time":94.389208887,"data":"fold 2 online0_f@g1c1   pairs=  50 ALC=0.2010 curve=[0.2501 0.2228 0.1997 0.191  0.1807 0.1712] (1s)\n"}
+,{"stream_name":"stdout","time":95.377317637,"data":"fold 2 online_name_f@g1c1 pairs=  50 ALC=0.2016 curve=[0.2532 0.2242 0.2001 0.1909 0.1808 0.171 ] (1s)\n"}
+,{"stream_name":"stdout","time":97.370663974,"data":"fold 3 const            pairs=  44 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (0s)\n"}
+,{"stream_name":"stdout","time":97.665904308,"data":"fold 3 emp_mean         pairs=  44 ALC=0.2532 curve=[0.25   0.3822 0.2562 0.2128 0.1942 0.1908] (0s)\n"}
+,{"stream_name":"stdout","time":97.964192486,"data":"fold 3 beta11           pairs=  44 ALC=0.2160 curve=[0.25   0.2385 0.2216 0.2059 0.1936 0.1904] (0s)\n"}
+,{"stream_name":"stdout","time":98.281024415,"data":"fold 3 eb_bench         pairs=  44 ALC=0.2205 curve=[0.25   0.2495 0.2319 0.2073 0.1935 0.1906] (0s)\n"}
+,{"stream_name":"stdout","time":98.609521753,"data":"fold 3 online0          pairs=  44 ALC=0.2140 curve=[0.2501 0.2328 0.2211 0.2057 0.1927 0.1857] (0s)\n"}
+,{"stream_name":"stdout","time":99.181167795,"data":"fold 3 online0@g1       pairs=  44 ALC=0.2095 curve=[0.2501 0.2257 0.2104 0.2029 0.192  0.1828] (1s)\n"}
+,{"stream_name":"stdout","time":100.005572624,"data":"fold 3 online0_f@g1     pairs=  44 ALC=0.2082 curve=[0.2501 0.2259 0.2092 0.2015 0.1894 0.1798] (1s)\n"}
+,{"stream_name":"stdout","time":100.587802345,"data":"fold 3 online0_f        pairs=  44 ALC=0.2135 curve=[0.2501 0.2355 0.2223 0.2031 0.1896 0.1834] (1s)\n"}
+,{"stream_name":"stdout","time":101.446023428,"data":"fold 3 online0_f@g1c1   pairs=  44 ALC=0.2085 curve=[0.2501 0.2259 0.2097 0.2003 0.1913 0.1805] (1s)\n"}
+,{"stream_name":"stdout","time":102.315094495,"data":"fold 3 online_name_f@g1c1 pairs=  44 ALC=0.2085 curve=[0.251  0.2257 0.2095 0.2001 0.1912 0.1811] (1s)\n"}
+,{"stream_name":"stdout","time":104.248849648,"data":"fold 4 const            pairs=  44 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (0s)\n"}
+,{"stream_name":"stdout","time":104.504949847,"data":"fold 4 emp_mean         pairs=  44 ALC=0.2310 curve=[0.25   0.3594 0.2202 0.1881 0.1754 0.1736] (0s)\n"}
+,{"stream_name":"stdout","time":104.759617284,"data":"fold 4 beta11           pairs=  44 ALC=0.2000 curve=[0.25   0.2309 0.1988 0.1841 0.1746 0.1728] (0s)\n"}
+,{"stream_name":"stdout","time":105.03773806,"data":"fold 4 eb_bench         pairs=  44 ALC=0.1992 curve=[0.25   0.2279 0.1964 0.1847 0.1751 0.1733] (0s)\n"}
+,{"stream_name":"stdout","time":105.316099939,"data":"fold 4 online0          pairs=  44 ALC=0.1937 curve=[0.25   0.219  0.1934 0.1809 0.1697 0.1605] (0s)\n"}
+,{"stream_name":"stdout","time":105.79278586,"data":"fold 4 online0@g1       pairs=  44 ALC=0.1925 curve=[0.25   0.2158 0.1912 0.1816 0.1693 0.1588] (0s)\n"}
+,{"stream_name":"stdout","time":106.562618826,"data":"fold 4 online0_f@g1     pairs=  44 ALC=0.1890 curve=[0.25   0.211  0.1874 0.1783 0.1659 0.1551] (1s)\n"}
+,{"stream_name":"stdout","time":107.100961128,"data":"fold 4 online0_f        pairs=  44 ALC=0.1907 curve=[0.25   0.2167 0.1899 0.1777 0.1657 0.1572] (1s)\n"}
+,{"stream_name":"stdout","time":107.841163826,"data":"fold 4 online0_f@g1c1   pairs=  44 ALC=0.1888 curve=[0.25   0.211  0.187  0.1782 0.1651 0.1549] (1s)\n"}
+,{"stream_name":"stdout","time":108.622530221,"data":"fold 4 online_name_f@g1c1 pairs=  44 ALC=0.1882 curve=[0.2481 0.2107 0.1865 0.1778 0.1649 0.1542] (1s)\n"}
+,{"stream_name":"stdout","time":108.622572429,"data":"\n"}
+,{"stream_name":"stdout","time":108.622576601,"data":"=== pooled over folds (equal weight per pair) ===\n"}
+,{"stream_name":"stdout","time":108.62274423,"data":"const            ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25]\n"}
+,{"stream_name":"stdout","time":108.623149223,"data":"emp_mean         ALC=0.2383 curve=[0.25   0.3539 0.2372 0.1984 0.1863 0.1809]\n"}
+,{"stream_name":"stdout","time":108.623394139,"data":"beta11           ALC=0.2067 curve=[0.25   0.2291 0.2109 0.1933 0.1851 0.1805]\n"}
+,{"stream_name":"stdout","time":108.623891396,"data":"eb_bench         ALC=0.2070 curve=[0.25   0.229  0.2122 0.1933 0.1853 0.1806]\n"}
+,{"stream_name":"stdout","time":108.624242859,"data":"online0          ALC=0.2019 curve=[0.2503 0.222  0.2052 0.19   0.1813 0.1723]\n"}
+,{"stream_name":"stdout","time":108.624618317,"data":"online0@g1       ALC=0.2006 curve=[0.2503 0.2198 0.202  0.1899 0.1801 0.1719]\n"}
+,{"stream_name":"stdout","time":108.625065013,"data":"online0_f@g1     ALC=0.1970 curve=[0.2503 0.2167 0.1986 0.1865 0.1751 0.1662]\n"}
+,{"stream_name":"stdout","time":108.625313665,"data":"online0_f        ALC=0.1988 curve=[0.2503 0.2196 0.2027 0.1867 0.1763 0.167 ]\n"}
+,{"stream_name":"stdout","time":108.625654344,"data":"online0_f@g1c1   ALC=0.1969 curve=[0.2503 0.2166 0.1986 0.1858 0.1759 0.1655]\n"}
+,{"stream_name":"stdout","time":108.62595733,"data":"online_name_f@g1c1 ALC=0.1965 curve=[0.2491 0.2161 0.1982 0.1856 0.1757 0.1651]\n"}
+,{"stream_name":"stderr","time":112.078577247,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":112.078619346,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":112.500034628,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":112.500066166,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":114.584334757,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":115.979922817,"data":"[NbConvertApp] Writing 275932 bytes to __results__.html\n"}
+]

@@ -1,0 +1,18 @@
+[{"stream_name":"stderr","time":19.281949996,"data":"/kaggle/input/datasets/<kaggle-user-2>/paiec-code/lobo_ridge.py:72: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
+,{"stream_name":"stderr","time":19.28201393,"data":"  g = g.groupby(\"bench\", group_keys=False).apply(lambda x: x.sample(min(len(x), args.per_bench), random_state=0))\n"}
+,{"stream_name":"stdout","time":43.440970211,"data":"format      lam=0.01  item R2=-0.018 bench-mean R2=-0.005 within-bench R2=-0.012\n"}
+,{"stream_name":"stdout","time":43.815810406,"data":"format      lam=0.1   item R2=-0.007 bench-mean R2=0.015 within-bench R2=-0.008\n"}
+,{"stream_name":"stdout","time":44.193346813,"data":"format      lam=1.0   item R2=0.010 bench-mean R2=0.037 within-bench R2=0.001\n"}
+,{"stream_name":"stdout","time":64.679901998,"data":"emb         lam=0.01  item R2=-0.050 bench-mean R2=0.030 within-bench R2=-0.110\n"}
+,{"stream_name":"stdout","time":85.246556223,"data":"emb         lam=0.1   item R2=-0.032 bench-mean R2=0.021 within-bench R2=-0.076\n"}
+,{"stream_name":"stdout","time":105.535870066,"data":"emb         lam=1.0   item R2=-0.015 bench-mean R2=0.013 within-bench R2=-0.034\n"}
+,{"stream_name":"stdout","time":130.015429295,"data":"emb+format  lam=0.01  item R2=-0.068 bench-mean R2=-0.003 within-bench R2=-0.111\n"}
+,{"stream_name":"stdout","time":154.77584956,"data":"emb+format  lam=0.1   item R2=-0.044 bench-mean R2=-0.001 within-bench R2=-0.076\n"}
+,{"stream_name":"stdout","time":179.291533015,"data":"emb+format  lam=1.0   item R2=-0.020 bench-mean R2=0.002 within-bench R2=-0.032\n"}
+,{"stream_name":"stderr","time":182.803417004,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":182.803455598,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":183.319195829,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":183.319226116,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":185.622238224,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":187.165599408,"data":"[NbConvertApp] Writing 275652 bytes to __results__.html\n"}
+]

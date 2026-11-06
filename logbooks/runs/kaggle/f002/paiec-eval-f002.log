@@ -1,0 +1,17 @@
+[{"stream_name":"stderr","time":4.687462025,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":4.688239583,"data":"  File \"/kaggle/src/script.py\", line 11, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":4.688254361,"data":"    importlib.import_module(\"evaluate\").main()\n"}
+,{"stream_name":"stderr","time":4.688258755,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":4.688262688,"data":"  File \"/kaggle/input/paiec-code/evaluate.py\", line 164, in main\n"}
+,{"stream_name":"stderr","time":4.688266877,"data":"    emb = Emb(*load_embeddings(args.emb)) if args.emb else None\n"}
+,{"stream_name":"stderr","time":4.688270774,"data":"               ~~~~~~~~~~~~~~~^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":4.688274597,"data":"  File \"/kaggle/input/paiec-code/data.py\", line 62, in load_embeddings\n"}
+,{"stream_name":"stderr","time":4.68827865,"data":"    codes = np.concatenate(codes)\n"}
+,{"stream_name":"stderr","time":4.688282511,"data":"ValueError: need at least one array to concatenate\n"}
+,{"stream_name":"stderr","time":7.618199245,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":7.618243669,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":8.014714244,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":8.014757158,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":10.050381368,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":11.363136719,"data":"[NbConvertApp] Writing 275898 bytes to __results__.html\n"}
+]

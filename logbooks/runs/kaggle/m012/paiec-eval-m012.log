@@ -1,0 +1,16 @@
+[{"stream_name":"stdout","time":18.173131484,"data":"loaded 3,089,078 cells in 12s\n"}
+,{"stream_name":"stdout","time":28.844135277,"data":"fold 0 online_name_prop_t@g1 pairs= 210 ALC=0.2076 curve=[0.2461 0.2179 0.2083 0.2006 0.1941 0.1883] (10s)\n"}
+,{"stream_name":"stdout","time":37.890677883,"data":"fold 1 online_name_prop_t@g1 pairs= 192 ALC=0.1950 curve=[0.2475 0.2024 0.1953 0.1881 0.179  0.1732] (9s)\n"}
+,{"stream_name":"stdout","time":48.407017995,"data":"fold 2 online_name_prop_t@g1 pairs= 211 ALC=0.2032 curve=[0.2517 0.2087 0.2033 0.1968 0.1909 0.1811] (10s)\n"}
+,{"stream_name":"stdout","time":57.639262599,"data":"fold 3 online_name_prop_t@g1 pairs= 193 ALC=0.2057 curve=[0.2521 0.2142 0.2089 0.1979 0.1902 0.1832] (9s)\n"}
+,{"stream_name":"stdout","time":62.203390311,"data":"fold 4 online_name_prop_t@g1 pairs= 115 ALC=0.2042 curve=[0.2498 0.2209 0.2061 0.1976 0.185  0.1727] (4s)\n"}
+,{"stream_name":"stdout","time":62.203437719,"data":"\n"}
+,{"stream_name":"stdout","time":62.203443734,"data":"=== pooled over folds (equal weight per pair) ===\n"}
+,{"stream_name":"stdout","time":62.203448988,"data":"online_name_prop_t@g1 ALC=0.2032 curve=[0.2494 0.2122 0.2043 0.1962 0.1882 0.1805]\n"}
+,{"stream_name":"stderr","time":65.871511684,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":65.871561602,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":66.416046137,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":66.416093893,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":69.229219973,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":70.765782751,"data":"[NbConvertApp] Writing 275776 bytes to __results__.html\n"}
+]

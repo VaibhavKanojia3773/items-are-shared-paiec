@@ -1,0 +1,29 @@
+{
+ "args": {
+  "methods": "online_name_y",
+  "folds": 5,
+  "only_folds": "0,1",
+  "max_subj": 20,
+  "max_acq": 200,
+  "max_eval": 100,
+  "hp": "{\"a\": 0.6, \"s_u\": 1.0, \"s_t\": 0.5, \"s_v\": 0.5, \"s_w\": 1.2, \"c\": 0.2, \"n_cap\": 2.0, \"ell_y\": 0.5, \"kappa_y\": 0.5, \"y_scale\": 2.0}",
+  "knn": "{}",
+  "emb": "",
+  "subset": "data/proc/subset10k.parquet",
+  "tag": "E070_y",
+  "seed": 0
+ },
+ "summary": {
+  "online_name_y": {
+   "alc": 0.20366770280200971,
+   "curve": [
+    0.2474,
+    0.2135,
+    0.2043,
+    0.1969,
+    0.1894,
+    0.181
+   ]
+  }
+ }
+}

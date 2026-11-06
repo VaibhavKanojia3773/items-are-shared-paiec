@@ -1,0 +1,17 @@
+[{"stream_name":"stdout","time":12.581924348,"data":"loaded 12,538,408 cells in 9s\n"}
+,{"stream_name":"stdout","time":48.540172364,"data":"item feature tokens for 597,441 items\n"}
+,{"stream_name":"stdout","time":79.62300817,"data":"fold 0 online0_propf@g1 pairs= 425 ALC=0.2042 curve=[0.2505 0.2168 0.2075 0.1965 0.1859 0.1777] (29s)\n"}
+,{"stream_name":"stdout","time":99.75608848,"data":"fold 1 online0_propf@g1 pairs= 305 ALC=0.1886 curve=[0.2502 0.201  0.1888 0.178  0.1696 0.1609] (18s)\n"}
+,{"stream_name":"stdout","time":127.325456768,"data":"fold 2 online0_propf@g1 pairs= 408 ALC=0.1940 curve=[0.2502 0.2038 0.1973 0.1867 0.1759 0.1628] (26s)\n"}
+,{"stream_name":"stdout","time":144.854012705,"data":"fold 3 online0_propf@g1 pairs= 301 ALC=0.2060 curve=[0.25   0.2217 0.2063 0.1983 0.1885 0.1806] (16s)\n"}
+,{"stream_name":"stdout","time":162.418662683,"data":"fold 4 online0_propf@g1 pairs= 299 ALC=0.1734 curve=[0.25   0.1848 0.1726 0.1613 0.1523 0.1416] (16s)\n"}
+,{"stream_name":"stdout","time":162.418711997,"data":"\n"}
+,{"stream_name":"stdout","time":162.418720211,"data":"=== pooled over folds (equal weight per pair) ===\n"}
+,{"stream_name":"stdout","time":162.419175118,"data":"online0_propf@g1 ALC=0.1941 curve=[0.2502 0.2063 0.1956 0.1852 0.1754 0.1655]\n"}
+,{"stream_name":"stderr","time":165.066328789,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":165.066355693,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":165.354956666,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":165.354982887,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":166.748343741,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":167.66348617,"data":"[NbConvertApp] Writing 275870 bytes to __results__.html\n"}
+]

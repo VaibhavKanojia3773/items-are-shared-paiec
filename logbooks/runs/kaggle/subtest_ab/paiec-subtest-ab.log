@@ -1,0 +1,37 @@
+[{"stream_name":"stdout","time":365.877044656,"data":"===== stage_v3\n"}
+,{"stream_name":"stdout","time":365.877133132,"data":"budget  0: brier=0.2506 labels=0 (45s)\n"}
+,{"stream_name":"stdout","time":365.87713993,"data":"budget  1: brier=0.1860 labels=77 (56s)\n"}
+,{"stream_name":"stdout","time":365.877144011,"data":"budget  3: brier=0.1701 labels=229 (86s)\n"}
+,{"stream_name":"stdout","time":365.877147996,"data":"budget  7: brier=0.1690 labels=535 (109s)\n"}
+,{"stream_name":"stdout","time":365.87715177,"data":"budget 15: brier=0.1643 labels=1142 (152s)\n"}
+,{"stream_name":"stdout","time":365.877155778,"data":"budget 31: brier=0.1599 labels=2361 (262s)\n"}
+,{"stream_name":"stdout","time":365.877173069,"data":"ALC=0.1789 pairs=68\n"}
+,{"stream_name":"stdout","time":365.877179529,"data":"\n"}
+,{"stream_name":"stdout","time":365.877183189,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":365.877187177,"data":"\n"}
+,{"stream_name":"stdout","time":365.877190924,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":365.877195336,"data":"Loading weights:   3%|▎         | 5/199 [00:00\u003c00:05, 35.78it/s]\n"}
+,{"stream_name":"stdout","time":365.877199851,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 1349.72it/s]\n"}
+,{"stream_name":"stdout","time":365.877203938,"data":"\n"}
+,{"stream_name":"stdout","time":835.625736362,"data":"===== stage_v5\n"}
+,{"stream_name":"stdout","time":835.625793761,"data":"budget  0: brier=0.2506 labels=0 (42s)\n"}
+,{"stream_name":"stdout","time":835.625798341,"data":"budget  1: brier=0.1907 labels=77 (57s)\n"}
+,{"stream_name":"stdout","time":835.625801513,"data":"budget  3: brier=0.1757 labels=229 (89s)\n"}
+,{"stream_name":"stdout","time":835.625804632,"data":"budget  7: brier=0.1719 labels=534 (120s)\n"}
+,{"stream_name":"stdout","time":835.625807729,"data":"budget 15: brier=0.1665 labels=1142 (197s)\n"}
+,{"stream_name":"stdout","time":835.625810825,"data":"budget 31: brier=0.1600 labels=2361 (443s)\n"}
+,{"stream_name":"stdout","time":835.625813913,"data":"ALC=0.1820 pairs=68\n"}
+,{"stream_name":"stdout","time":835.625816866,"data":"\n"}
+,{"stream_name":"stdout","time":835.625819869,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":835.625823047,"data":"\n"}
+,{"stream_name":"stdout","time":835.625825917,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":835.625829349,"data":"Loading weights:   3%|▎         | 5/199 [00:00\u003c00:04, 40.99it/s]\n"}
+,{"stream_name":"stdout","time":835.625833233,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 1538.36it/s]\n"}
+,{"stream_name":"stdout","time":835.625836491,"data":"\n"}
+,{"stream_name":"stderr","time":838.161311508,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":838.161341167,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":838.548023283,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":838.548052355,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":839.537965082,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":840.961702134,"data":"[NbConvertApp] Writing 277480 bytes to __results__.html\n"}
+]

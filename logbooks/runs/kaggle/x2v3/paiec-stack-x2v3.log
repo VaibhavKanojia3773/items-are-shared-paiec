@@ -1,0 +1,78 @@
+[{"stream_name":"stderr","time":17.70908472,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":17.709156033,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":18.643620839,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":18.643658432,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":20.977023689,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":20.977053202,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":24.980226745,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":24.98026537,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":32.819953638,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":32.819991827,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":50.491432714,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":50.491478733,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stdout","time":50.539967433,"data":"fold 0: base ALC=0.2070\n"}
+,{"stream_name":"stderr","time":56.55739727,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":56.557472886,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":57.247598749,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":57.247658744,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":58.773959583999996,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":58.773995326,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":61.262038185,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":61.26211821,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":65.684775294,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":65.684833243,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":75.078660881,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":75.078722596,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stdout","time":75.149175318,"data":"fold 1: base ALC=0.1941\n"}
+,{"stream_name":"stderr","time":77.324932732,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":77.324970473,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":78.202223487,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":78.202257565,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":80.330422309,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":80.330465316,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":84.08889406,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":84.088938087,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":91.491530966,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":91.491575876,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":107.720123563,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":107.720166713,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stdout","time":107.761616059,"data":"fold 2: base ALC=0.1944\n"}
+,{"stream_name":"stderr","time":109.717166737,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":109.717234587,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":110.308204196,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":110.308271105,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":111.790284996,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":111.790347349,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":114.17416153,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":114.174207017,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":118.50666544,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":118.506708958,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":127.403472777,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":127.403515569,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stdout","time":127.432674531,"data":"fold 3: base ALC=0.2065\n"}
+,{"stream_name":"stderr","time":129.39017882,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":129.390218671,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":129.965712113,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":129.965747829,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":131.487591404,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":131.487645087,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":133.832420755,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":133.832530322,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":138.135759716,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":138.135794136,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stderr","time":147.142603031,"data":"/kaggle/input/datasets/<kaggle-user-1>/paiec-code/stack.py:111: FutureWarning: factorize with argument that is not not a Series, Index, ExtensionArray, or np.ndarray is deprecated and will raise in a future version.\n"}
+,{"stream_name":"stderr","time":147.142666782,"data":"  X[\"pair_id\"] = f * 100000 + pd.factorize(list(zip(t.sid, t.bench)))[0]\n"}
+,{"stream_name":"stdout","time":147.172492724,"data":"fold 4: base ALC=0.1763\n"}
+,{"stream_name":"stdout","time":147.324194147,"data":"collected 993,300 target-budget rows in 133s\n"}
+,{"stream_name":"stdout","time":147.404137201,"data":"BASE        ALC=0.1964 curve=[0.2502 0.2077 0.1971 0.188  0.1793 0.1697]\n"}
+,{"stream_name":"stdout","time":159.005700958,"data":"PLATT budget             ALC=0.1967 curve=[0.2514 0.2083 0.1972 0.188  0.1793 0.1696]\n"}
+,{"stream_name":"stdout","time":159.005767139,"data":"   params (fold-wise slope, bias): {'0': [-4.803, -0.107], '1': [1.111, -0.033], '15': [1.03, 0.04], '3': [1.056, 0.03], '31': [1.055, 0.038], '7': [1.045, 0.023]}\n"}
+,{"stream_name":"stdout","time":172.803989696,"data":"PLATT budget+item_known  ALC=0.1967 curve=[0.2514 0.2083 0.1972 0.188  0.1793 0.1696]\n"}
+,{"stream_name":"stdout","time":172.804052916,"data":"   params (fold-wise slope, bias): {'0|0': [-4.803, -0.107], '15|0': [1.031, 0.043], '15|1': [1.027, 0.025], '1|0': [1.116, -0.033], '1|1': [1.004, -0.049], '31|0': [1.048, 0.057], '31|1': [1.061, -0.0], '3|0': [1.065, 0.03], '3|1': [0.975, 0.027], '7|0': [1.057, 0.019], '7|1': [0.995, 0.053]}\n"}
+,{"stream_name":"stderr","time":175.433032966,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":175.433060947,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":175.796190313,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":175.796212062,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":177.693647477,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":178.769198837,"data":"[NbConvertApp] Writing 275860 bytes to __results__.html\n"}
+]

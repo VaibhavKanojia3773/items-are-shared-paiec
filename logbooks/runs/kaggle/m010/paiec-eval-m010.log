@@ -1,0 +1,23 @@
+[{"stream_name":"stdout","time":14.024899691,"data":"loaded 3,089,078 cells in 11s\n"}
+,{"stream_name":"stdout","time":51.28277923,"data":"item feature tokens for 597,441 items\n"}
+,{"stream_name":"stdout","time":62.186787552,"data":"fold 0 online0_propx@g1 pairs= 210 ALC=0.2079 curve=[0.2509 0.2217 0.2066 0.1993 0.1936 0.1853] (10s)\n"}
+,{"stream_name":"stdout","time":74.429402374,"data":"fold 0 online0_propxf@g1 pairs= 210 ALC=0.2063 curve=[0.2509 0.2237 0.2061 0.1967 0.189  0.1806] (12s)\n"}
+,{"stream_name":"stdout","time":83.508332301,"data":"fold 1 online0_propx@g1 pairs= 192 ALC=0.1930 curve=[0.2501 0.2028 0.1938 0.1845 0.1756 0.1664] (9s)\n"}
+,{"stream_name":"stdout","time":93.530289348,"data":"fold 1 online0_propxf@g1 pairs= 192 ALC=0.1830 curve=[0.2501 0.1951 0.1837 0.1713 0.1626 0.154 ] (10s)\n"}
+,{"stream_name":"stdout","time":104.054991824,"data":"fold 2 online0_propx@g1 pairs= 211 ALC=0.2026 curve=[0.2498 0.2103 0.2059 0.1963 0.1885 0.1741] (10s)\n"}
+,{"stream_name":"stdout","time":116.14177392,"data":"fold 2 online0_propxf@g1 pairs= 211 ALC=0.2032 curve=[0.2498 0.2133 0.208  0.1969 0.187  0.1717] (12s)\n"}
+,{"stream_name":"stdout","time":125.319669566,"data":"fold 3 online0_propx@g1 pairs= 193 ALC=0.2032 curve=[0.2499 0.2129 0.2071 0.1962 0.1858 0.1786] (9s)\n"}
+,{"stream_name":"stdout","time":135.622505286,"data":"fold 3 online0_propxf@g1 pairs= 193 ALC=0.2015 curve=[0.2499 0.2134 0.2051 0.1938 0.183  0.1751] (10s)\n"}
+,{"stream_name":"stdout","time":139.860543828,"data":"fold 4 online0_propx@g1 pairs= 115 ALC=0.2022 curve=[0.2502 0.2224 0.2095 0.196  0.1779 0.16  ] (4s)\n"}
+,{"stream_name":"stdout","time":144.819502101,"data":"fold 4 online0_propxf@g1 pairs= 115 ALC=0.2011 curve=[0.2502 0.2242 0.2112 0.1934 0.1742 0.1548] (5s)\n"}
+,{"stream_name":"stdout","time":144.819573292,"data":"\n"}
+,{"stream_name":"stdout","time":144.819644033,"data":"=== pooled over folds (equal weight per pair) ===\n"}
+,{"stream_name":"stdout","time":144.820141587,"data":"online0_propx@g1 ALC=0.2019 curve=[0.2502 0.2134 0.2042 0.1945 0.1851 0.1743]\n"}
+,{"stream_name":"stdout","time":144.820585605,"data":"online0_propxf@g1 ALC=0.1991 curve=[0.2502 0.2133 0.2023 0.1904 0.1799 0.1686]\n"}
+,{"stream_name":"stderr","time":147.474839595,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":147.474870869,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":147.742864688,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":147.742890662,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":149.148156628,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":150.11177822,"data":"[NbConvertApp] Writing 275914 bytes to __results__.html\n"}
+]

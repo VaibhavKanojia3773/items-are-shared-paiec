@@ -1,0 +1,34 @@
+{
+ "args": {
+  "methods": "online0@g1",
+  "folds": 5,
+  "only_folds": "",
+  "max_subj": 20,
+  "max_acq": 200,
+  "max_eval": 100,
+  "hp": "{\"a\":0.4,\"s_t\":0.5,\"s_v\":1.0,\"c\":0.1,\"n_cap\":1.0,\"s_u\":1.4,\"s_w\":2.2}",
+  "knn": "{}",
+  "emb": "",
+  "subset": "data/proc/subset10k.parquet",
+  "tag": "LS_pool",
+  "seed": 0,
+  "template": false,
+  "merged": false,
+  "formative": 0,
+  "rows": 1000,
+  "tok": "feat"
+ },
+ "summary": {
+  "online0@g1": {
+   "alc": 0.19802425226440487,
+   "curve": [
+    0.2502,
+    0.2085,
+    0.1986,
+    0.1898,
+    0.182,
+    0.1724
+   ]
+  }
+ }
+}

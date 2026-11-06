@@ -1,0 +1,28 @@
+[{"stream_name":"stdout","time":18.609506469,"data":"loaded 12,538,408 cells in 15s\n"}
+,{"stream_name":"stdout","time":21.354118531,"data":"fold 0 const            pairs= 209 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (1s)\n"}
+,{"stream_name":"stdout","time":22.378398729,"data":"fold 0 emp_mean         pairs= 209 ALC=0.2475 curve=[0.25   0.3743 0.2392 0.2105 0.194  0.1886] (1s)\n"}
+,{"stream_name":"stdout","time":28.30622596,"data":"fold 0 online0_propx@g1 pairs= 209 ALC=0.1988 curve=[0.2505 0.2206 0.2028 0.1915 0.1756 0.1567] (6s)\n"}
+,{"stream_name":"stdout","time":32.251319093,"data":"fold 1 const            pairs= 174 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (2s)\n"}
+,{"stream_name":"stdout","time":34.779808431,"data":"fold 1 emp_mean         pairs= 174 ALC=0.2167 curve=[0.25   0.3065 0.211  0.1813 0.1747 0.17  ] (3s)\n"}
+,{"stream_name":"stdout","time":41.495536784,"data":"fold 1 online0_propx@g1 pairs= 174 ALC=0.1747 curve=[0.2505 0.1883 0.1774 0.1644 0.1508 0.1348] (7s)\n"}
+,{"stream_name":"stdout","time":43.746677038,"data":"fold 2 const            pairs= 192 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (1s)\n"}
+,{"stream_name":"stdout","time":44.486794549,"data":"fold 2 emp_mean         pairs= 192 ALC=0.2592 curve=[0.25   0.3924 0.2531 0.2233 0.2038 0.1968] (1s)\n"}
+,{"stream_name":"stdout","time":49.83973987,"data":"fold 2 online0_propx@g1 pairs= 192 ALC=0.1904 curve=[0.2502 0.2167 0.1975 0.1811 0.1605 0.142 ] (5s)\n"}
+,{"stream_name":"stdout","time":51.995069231,"data":"fold 3 const            pairs= 168 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (1s)\n"}
+,{"stream_name":"stdout","time":52.737081883,"data":"fold 3 emp_mean         pairs= 168 ALC=0.2585 curve=[0.25   0.3764 0.2569 0.2219 0.2108 0.2033] (1s)\n"}
+,{"stream_name":"stdout","time":57.173310492,"data":"fold 3 online0_propx@g1 pairs= 168 ALC=0.1961 curve=[0.2501 0.2193 0.2063 0.1888 0.1688 0.1443] (4s)\n"}
+,{"stream_name":"stdout","time":59.168276775,"data":"fold 4 const            pairs= 148 ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25] (1s)\n"}
+,{"stream_name":"stdout","time":59.764589751,"data":"fold 4 emp_mean         pairs= 148 ALC=0.2208 curve=[0.25   0.3201 0.217  0.1823 0.1738 0.1717] (1s)\n"}
+,{"stream_name":"stdout","time":63.408177722,"data":"fold 4 online0_propx@g1 pairs= 148 ALC=0.1757 curve=[0.25   0.1904 0.1823 0.166  0.149  0.1316] (4s)\n"}
+,{"stream_name":"stdout","time":63.408211801,"data":"\n"}
+,{"stream_name":"stdout","time":63.408216442,"data":"=== pooled over folds (equal weight per pair) ===\n"}
+,{"stream_name":"stdout","time":63.408624255,"data":"const            ALC=0.2500 curve=[0.25 0.25 0.25 0.25 0.25 0.25]\n"}
+,{"stream_name":"stdout","time":63.409046234,"data":"emp_mean         ALC=0.2416 curve=[0.25   0.3564 0.2364 0.205  0.1921 0.1867]\n"}
+,{"stream_name":"stdout","time":63.40950018,"data":"online0_propx@g1 ALC=0.1879 curve=[0.2503 0.2082 0.194  0.1792 0.1618 0.1427]\n"}
+,{"stream_name":"stderr","time":65.778264634,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":65.7782968,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":66.117063094,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":66.117087747,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":67.935147831,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":68.978865772,"data":"[NbConvertApp] Writing 275899 bytes to __results__.html\n"}
+]
