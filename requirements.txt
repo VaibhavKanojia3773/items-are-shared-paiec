@@ -1,0 +1,14 @@
+# Core: simulator, model, analysis and figures (versions used for all reported runs)
+numpy==2.2.6
+pandas==2.3.3
+pyarrow==25.0.1
+matplotlib==3.10.9
+huggingface_hub==1.33.0   # data download (gated dataset; needs an HF token)
+pymupdf==1.28.2           # optional: render figure PDFs to PNG
+
+# Optional: text embeddings for propagation (package encoder path, embedding experiments)
+# sentence-transformers>=3.0   # intfloat/multilingual-e5-small; a GPU is optional
+# torch>=2.0
+# Optional: exploratory baselines in paiec/stack.py
+# scikit-learn>=1.5
+# lightgbm>=4.0

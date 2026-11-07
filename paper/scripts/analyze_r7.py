@@ -24,13 +24,30 @@ METHODS = {"Const": "const", "EM": "emp_mean", "Beta": "beta11", "EB": "eb_bench
 CONTRASTS = {"Unc": ("HierU", "Hier"), "Tokens": ("Tok", "HierU"), "Cov": ("Six", "Tok"), "Name": ("Sev", "Six"),
              "Act": ("Six", "TokRand"), "VsEM": ("Sev", "EM"), "VsBeta": ("Sev", "Beta"), "VsEB": ("Sev", "EB"),
              "VsHier": ("Sev", "Hier"), "Gate": ("Gate", "Sev"), "SixVsBeta": ("Six", "Beta"), "SixVsEM": ("Six", "EM"), "SixVsEB": ("Six", "EB")}
-cells, meta = load_cells(pd.read_parquet(ROOT / "data/proc/subset10k.parquet")["iid_code"].to_numpy())
-folds = fold_of(cells["bench"].unique(), 5)
-cells["fold"] = cells["bench"].map(folds).astype(int)
-name_of = meta["normalized_name"].fillna("").astype(str).to_numpy()
+META = ROOT / "logbooks/runs/r7_pairs_meta.npz"  # benchmark id and known-name flag per result row (bundled)
+HAVE_DATA = (ROOT / "data/proc/subset10k.parquet").exists()
+if HAVE_DATA:
+    cells, meta = load_cells(pd.read_parquet(ROOT / "data/proc/subset10k.parquet")["iid_code"].to_numpy())
+    folds = fold_of(cells["bench"].unique(), 5)
+    cells["fold"] = cells["bench"].map(folds).astype(int)
+    name_of = meta["normalized_name"].fillna("").astype(str).to_numpy()
+elif not META.exists():
+    raise SystemExit("need data/proc (see README) or the bundled logbooks/runs/r7_pairs_meta.npz")
+_meta_cache = dict(np.load(META)) if META.exists() else {}
 
 
 def pairs_meta(tag):
+    """Benchmark and known-name flag per result row: rebuilt from the processed data when present
+    (and saved), otherwise read from the bundled metadata file."""
+    if not HAVE_DATA:
+        return _meta_cache[f"{tag}_bench"], _meta_cache[f"{tag}_known"].astype(bool)
+    b, known = _pairs_meta_from_data(tag)
+    _meta_cache[f"{tag}_bench"], _meta_cache[f"{tag}_known"] = b, known
+    np.savez_compressed(META, **_meta_cache)
+    return b, known
+
+
+def _pairs_meta_from_data(tag):
     _, k, rows = REGIMES[tag]
     b, known = [], []
     for f in range(5):

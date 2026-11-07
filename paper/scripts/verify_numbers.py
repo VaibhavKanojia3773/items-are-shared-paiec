@@ -75,3 +75,5 @@ print("EDA: benchmarks", len(eda), "| interactor benchmarks", int((eda.interacto
 print(f"checked {n_checked} values; mismatches: {len(bad)}")
 for b in bad:
     print("  MISMATCH", b)
+if bad:
+    raise SystemExit(1)
