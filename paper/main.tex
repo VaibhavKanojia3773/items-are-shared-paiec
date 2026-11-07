@@ -34,6 +34,7 @@
 
 \author{%
   Vaibhav Kanojia\\
+  Delhi Technological University\\
   \texttt{vaibhavkanojia3773@gmail.com}
 }
 
@@ -267,7 +268,7 @@ On benchmarks excluded from development, the revealed labels of other systems on
 \paragraph{Reproducibility and disclosures.}
 Code and results are released at \url{https://github.com/VaibhavKanojia3773/items-are-shared-paiec}; the same files form the OpenReview supplementary archive, which contains the submitted ZIP, a manifest with full hashes, the simulator, all experiment and figure scripts, the logged outputs behind every table and figure, and instructions (\cref{app:repro}).
 Pretrained model: \texttt{intfloat/multilingual-e5-small} (MIT licence), frozen, for item embeddings. Data: the public measurement-db only. No LLM is called at scoring time. The offline rating pilot used open models through the NVIDIA API on public items only and did not influence the submitted method.
-Compute: a laptop (12th Gen Intel Core i7-1250U, 16\,GB RAM, no GPU; Python 3.10, NumPy 2.2, pandas 2.3) and cloud notebook sessions with 2$\times$NVIDIA T4 (16\,GB) GPUs, used only to compute embeddings and to run some simulations in parallel. The package needs no GPU. A dictionary-interface replay of 19 public pairs took 65\,s on the laptop CPU without the encoder. Earlier encoder-enabled replays of 24 pairs took 68--93\,s on Kaggle.
+Compute: a laptop (12th Gen Intel Core i7-1250U, 16\,GB RAM, no GPU; Python 3.10, NumPy 2.2, pandas 2.3) and cloud notebook sessions with 2$\times$NVIDIA T4 (16\,GB) GPUs, used only to compute embeddings and to run some simulations in parallel. The package needs no GPU. A dictionary-interface replay of 19 public pairs took 65\,s on the laptop CPU without the encoder. Earlier encoder-enabled replays of 24 pairs took 68--93\,s in a cloud notebook session.
 The code, experiments and this report were developed with Claude Code (Anthropic) as an AI coding and writing assistant. The author directed the work and checked the claims.
 
 \bibliographystyle{plainnat}
