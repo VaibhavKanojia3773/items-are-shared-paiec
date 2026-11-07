@@ -1,6 +1,7 @@
 """Sync paiec code to a private Kaggle dataset and push an evaluation kernel.
 
-    python scripts/kaggle_push_eval.py VN1 E040 "e5" "--methods ... --hp '{...}'"
+    python scripts/kaggle_push_eval.py <profile> E040 "e5" "--methods ... --hp '{...}'"
+<profile> is a folder under ~/.kaggle holding that account's kaggle.json.
 EMB names the embedding kernels on that account: e5 or qwen. The kernel reads
 paiec-proc, paiec-code and the two embedding shards' outputs; GPU is on.
 """
@@ -8,9 +9,16 @@ import json, os, shutil, subprocess, sys, time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-USERS = {"VN1": "<kaggle-user-1>", "VN2": "<kaggle-user-2>"}
 EMB = {"e5": "paiec-emb-multilingual-e5-smal", "qwen": "paiec-emb-qwen3-embedding-06b"}
 CODE = ["sim.py", "online.py", "priors.py", "data.py", "knn_prior.py", "evaluate.py", "acq.py", "tune.py", "lobo_ridge.py", "stack.py", "tune_full.py"]
+
+
+def user_of(profile):
+    """Kaggle username of a credentials profile: ~/.kaggle/<profile>/kaggle.json (or KAGGLE_USERNAME)."""
+    f = Path.home() / ".kaggle" / profile / "kaggle.json"
+    if f.exists():
+        return json.loads(f.read_text())["username"]
+    return os.environ["KAGGLE_USERNAME"]
 
 
 def kaggle(acct, *args, cwd=None):
@@ -21,7 +29,7 @@ def kaggle(acct, *args, cwd=None):
 
 
 def sync_code(acct):
-    user = USERS[acct]
+    user = user_of(acct)
     d = ROOT / "kaggle" / "code_ds" / acct
     shutil.rmtree(d, ignore_errors=True)
     d.mkdir(parents=True)
@@ -39,7 +47,7 @@ def main():
     acct, tag, emb, args = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
     gpu = "--cpu" not in sys.argv[5:]
     module = next((a.split("=", 1)[1] for a in sys.argv[5:] if a.startswith("--module=")), "evaluate")
-    user = USERS[acct]
+    user = user_of(acct)
     sync_code(acct)
     slug = f"paiec-{'eval' if module == 'evaluate' else module}-{tag.lower()}"
     d = ROOT / "kaggle" / "build" / slug

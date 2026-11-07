@@ -10,11 +10,12 @@
 ## Inputs and environment
 - Data: measurement-db core tables (`aims-foundations/measurement-db`, main branch, downloaded 2026-11-02; per-file index in the download script). Public data only.
 - Encoder: `intfloat/multilingual-e5-small` (frozen; declared in the package's `models.txt`).
-- Environment used for all simulator runs: Python 3.10.11, NumPy 2.2.6, pandas 2.3.3, pyarrow 25.0.1 (laptop CPU), plus Kaggle CPU/T4 sessions for embeddings and some runs. Kaggle and local runs of the standard regime agree to 1e-15.
+- Environment: Python 3.10.11 with the pinned `requirements.txt`. Hardware: laptop (Intel Core i7-1250U, 16 GB RAM, no GPU), plus cloud notebook sessions with 2x NVIDIA T4 for embeddings and parallel simulator runs. Kaggle and local runs of the standard regime agree to 1e-15.
 
 ## Paper inputs
 | Paper element | Input files | Produced by |
 |---|---|---|
+| Per-row benchmark ids and known-name flags (lets the analyzer run without data) | `logbooks/runs/r7_pairs_meta.npz` | written by `paper/scripts/analyze_r7.py` |
 | Table 1, Table 2, Figure 3, abstract numbers | `logbooks/runs/pairs_R7_{std,high,sp2,sp1}.npz` (one-response, embedding-free proxies) | `paiec/evaluate.py --single --no_provider ...` (see README) |
 | Gate contrast (Section 6) | `logbooks/runs/pairs_R8_{std,high,sp2,sp1}.npz` | same, method `online_name_f@g1c1o` |
 | Figure 2, overlap numbers | `logbooks/runs/overlap_R9_s0.json` (replicate `_s1`) | `paiec/overlap.py --seed 0/1` |

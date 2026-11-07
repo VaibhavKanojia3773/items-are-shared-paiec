@@ -1,5 +1,5 @@
 [{"stream_name":"stdout","time":20.339495318,"data":"loaded 12,538,408 cells in 19s\n"}
-,{"stream_name":"stderr","time":23.765210867,"data":"/kaggle/input/datasets/<kaggle-user-2>/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
+,{"stream_name":"stderr","time":23.765210867,"data":"/kaggle/input/datasets/user/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
 ,{"stream_name":"stderr","time":23.765250683,"data":"  keep = item.groupby(\"bench\", group_keys=False).apply(\n"}
 ,{"stream_name":"stdout","time":37.607378641,"data":"[knn] LOBO calibration: lam=0.169 alpha=0.177 R2=0.001\n"}
 ,{"stream_name":"stdout","time":48.47196689,"data":"fold 0 online_name      pairs= 425 ALC=0.2092 curve=[0.2488 0.2203 0.2105 0.2028 0.1944 0.1871] (2s)\n"}
@@ -8,7 +8,7 @@
 ,{"stream_name":"stdout","time":57.006015492,"data":"fold 0 online_name_propx pairs= 425 ALC=0.2076 curve=[0.2488 0.2189 0.2089 0.2011 0.1922 0.1848] (4s)\n"}
 ,{"stream_name":"stdout","time":81.50779466,"data":"fold 0 online0_prop@g1  pairs= 425 ALC=0.2075 curve=[0.2508 0.2179 0.2098 0.2001 0.192  0.1849] (25s)\n"}
 ,{"stream_name":"stdout","time":111.692312666,"data":"fold 0 online0_propx@g1 pairs= 425 ALC=0.2069 curve=[0.2508 0.2178 0.2091 0.1992 0.191  0.1839] (30s)\n"}
-,{"stream_name":"stderr","time":114.34952289,"data":"/kaggle/input/datasets/<kaggle-user-2>/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
+,{"stream_name":"stderr","time":114.34952289,"data":"/kaggle/input/datasets/user/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
 ,{"stream_name":"stderr","time":114.349563415,"data":"  keep = item.groupby(\"bench\", group_keys=False).apply(\n"}
 ,{"stream_name":"stdout","time":122.824957378,"data":"[knn] LOBO calibration: lam=0.652 alpha=0.063 R2=0.006\n"}
 ,{"stream_name":"stdout","time":131.455240935,"data":"fold 1 online_name      pairs= 305 ALC=0.1959 curve=[0.2453 0.2036 0.1955 0.1886 0.1824 0.1732] (3s)\n"}
@@ -17,7 +17,7 @@
 ,{"stream_name":"stdout","time":142.639476417,"data":"fold 1 online_name_propx pairs= 305 ALC=0.1940 curve=[0.2453 0.2024 0.1933 0.1865 0.1801 0.1704] (4s)\n"}
 ,{"stream_name":"stdout","time":158.276400927,"data":"fold 1 online0_prop@g1  pairs= 305 ALC=0.1956 curve=[0.2503 0.2057 0.195  0.1866 0.1793 0.1723] (16s)\n"}
 ,{"stream_name":"stdout","time":177.029974953,"data":"fold 1 online0_propx@g1 pairs= 305 ALC=0.1945 curve=[0.2503 0.2051 0.1932 0.1854 0.1784 0.1708] (19s)\n"}
-,{"stream_name":"stderr","time":180.182447743,"data":"/kaggle/input/datasets/<kaggle-user-2>/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
+,{"stream_name":"stderr","time":180.182447743,"data":"/kaggle/input/datasets/user/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
 ,{"stream_name":"stderr","time":180.182485678,"data":"  keep = item.groupby(\"bench\", group_keys=False).apply(\n"}
 ,{"stream_name":"stdout","time":188.431973458,"data":"[knn] LOBO calibration: lam=0.113 alpha=0.094 R2=0.000\n"}
 ,{"stream_name":"stdout","time":197.398680357,"data":"fold 2 online_name      pairs= 408 ALC=0.1995 curve=[0.2544 0.2077 0.1992 0.1917 0.1843 0.1746] (2s)\n"}
@@ -26,7 +26,7 @@
 ,{"stream_name":"stdout","time":204.714277863,"data":"fold 2 online_name_propx pairs= 408 ALC=0.1979 curve=[0.2544 0.2075 0.1982 0.1893 0.1814 0.1713] (3s)\n"}
 ,{"stream_name":"stdout","time":226.453920277,"data":"fold 2 online0_prop@g1  pairs= 408 ALC=0.1971 curve=[0.2503 0.2043 0.1968 0.1901 0.1824 0.1731] (22s)\n"}
 ,{"stream_name":"stdout","time":253.123099197,"data":"fold 2 online0_propx@g1 pairs= 408 ALC=0.1965 curve=[0.2503 0.2045 0.1965 0.189  0.1815 0.1714] (27s)\n"}
-,{"stream_name":"stderr","time":256.302945926,"data":"/kaggle/input/datasets/<kaggle-user-2>/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
+,{"stream_name":"stderr","time":256.302945926,"data":"/kaggle/input/datasets/user/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
 ,{"stream_name":"stderr","time":256.303001768,"data":"  keep = item.groupby(\"bench\", group_keys=False).apply(\n"}
 ,{"stream_name":"stdout","time":264.882373675,"data":"[knn] LOBO calibration: lam=0.315 alpha=0.143 R2=0.003\n"}
 ,{"stream_name":"stdout","time":273.266452773,"data":"fold 3 online_name      pairs= 301 ALC=0.2101 curve=[0.2524 0.2222 0.2102 0.2033 0.1955 0.1861] (2s)\n"}
@@ -35,7 +35,7 @@
 ,{"stream_name":"stdout","time":278.686797983,"data":"fold 3 online_name_propx pairs= 301 ALC=0.2085 curve=[0.2524 0.2211 0.2093 0.2019 0.1927 0.1829] (2s)\n"}
 ,{"stream_name":"stdout","time":291.627898819,"data":"fold 3 online0_prop@g1  pairs= 301 ALC=0.2087 curve=[0.25   0.223  0.2091 0.2011 0.193  0.185 ] (13s)\n"}
 ,{"stream_name":"stdout","time":307.418942564,"data":"fold 3 online0_propx@g1 pairs= 301 ALC=0.2087 curve=[0.25   0.2231 0.2092 0.201  0.1928 0.1846] (16s)\n"}
-,{"stream_name":"stderr","time":310.613798759,"data":"/kaggle/input/datasets/<kaggle-user-2>/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
+,{"stream_name":"stderr","time":310.613798759,"data":"/kaggle/input/datasets/user/paiec-code/knn_prior.py:32: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\n"}
 ,{"stream_name":"stderr","time":310.613835891,"data":"  keep = item.groupby(\"bench\", group_keys=False).apply(\n"}
 ,{"stream_name":"stdout","time":319.539705589,"data":"[knn] LOBO calibration: lam=0.270 alpha=0.137 R2=0.002\n"}
 ,{"stream_name":"stdout","time":328.327277648,"data":"fold 4 online_name      pairs= 299 ALC=0.1832 curve=[0.2515 0.1966 0.1816 0.1723 0.163  0.154 ] (1s)\n"}

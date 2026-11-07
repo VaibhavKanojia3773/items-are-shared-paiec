@@ -78,22 +78,31 @@ python paiec/build_submission.py \
 python paiec_baseline/check_submission_zip.py dist/paiec_v6_rebuilt.zip
 ```
 
-CPU smoke test through the official dictionary interface (public data; 6 benchmarks × 4 systems):
+CPU smoke test through the official dictionary interface (public data; 6 benchmarks × 4 systems; needs the processed tables). This harness reveals each acquired item's whole response cell and leaves `interactors` empty, so its score is a functional check, not a paper result:
 
 ```bash
 mkdir -p /tmp/v6 && unzip -o dist/paiec_v6.zip -d /tmp/v6
 python paiec/test_submission.py /tmp/v6 --benches 6 --subj 4 --eval 30 --seed 5
 ```
 
+## Requirements and hardware
+
+| | What we used | What you need |
+|---|---|---|
+| Python | 3.10.11 | ≥ 3.10; `pip install -r requirements.txt` (pinned versions) |
+| CPU / RAM | Laptop, 12th Gen Intel Core i7-1250U (12 threads), 16 GB RAM | Any recent CPU; 16 GB RAM to build the tables from raw data, 4 GB to verify from bundled outputs |
+| GPU | Cloud notebook sessions with 2× NVIDIA T4 (16 GB), only for computing text embeddings and running some simulations in parallel | **Not required.** The submitted package runs on CPU, and all main tables use embedding-free proxies |
+| Disk | 8.5 GB raw tables, 2 GB processed | ~11 GB to recompute from raw data; ~50 MB for this repository |
+| Time | Each simulator regime takes minutes to ~1 h on the laptop; the package scores ~19 pairs per minute on CPU | Same |
+
 ## Reproduce the paper
 
-Requires Python ≥ 3.10 with `numpy pandas pyarrow huggingface_hub matplotlib`. Add `sentence-transformers` for embeddings.
-
-**1. Verify every number from the bundled outputs** (minutes, no data download)
+**1. Verify every number from this repository alone** (minutes, no data download)
 
 ```bash
-python paper/scripts/analyze_r7.py      # intervals -> paper/results.tex (every number in the PDF)
-python paper/scripts/verify_numbers.py  # independent recomputation: 102 checks
+pip install -r requirements.txt
+python paper/scripts/verify_numbers.py  # independent recomputation: 102 checks, non-zero exit on any mismatch
+python paper/scripts/analyze_r7.py      # all intervals -> paper/results.tex (uses bundled logbooks/runs/r7_pairs_meta.npz)
 python paper/scripts/fig_overlap.py && python paper/scripts/fig_curves.py && python paper/scripts/fig_noise.py
 cd paper && latexmk -pdf main.tex
 ```
@@ -151,6 +160,6 @@ dist/paiec_v6.zip   the submitted package
 - **Pretrained model:** `intfloat/multilingual-e5-small` (MIT licence), frozen. No LLM is called at scoring time.
 - **Offline pilot:** open LLMs, accessed through the NVIDIA API, rated public items. This did not influence the submitted method.
 - **AI assistance:** development used Claude Code (Anthropic) as a coding and writing assistant, as the competition asks entrants to disclose.
-- Kaggle account names in the orchestration scripts and logs are replaced by placeholders.
+- **Cloud runs:** the orchestration scripts in `scripts/kaggle_push_*.py` read the account from your own `~/.kaggle/<profile>/kaggle.json`, and the data upload uses your own HF token. No credentials are included.
 
 Code is released under the [MIT License](LICENSE).

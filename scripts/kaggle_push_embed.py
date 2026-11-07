@@ -1,16 +1,15 @@
-"""Generate and push PAIEC embedding kernels: python scripts/kaggle_push_embed.py MODEL NSHARDS ACCOUNT
-All shards of one model run on one account (VN1 or VN2), reading that account's paiec-proc."""
+"""Generate and push PAIEC embedding kernels: python scripts/kaggle_push_embed.py MODEL NSHARDS PROFILE
+All shards of one model run on one Kaggle account; PROFILE is a folder under ~/.kaggle holding its kaggle.json."""
 import json, os, subprocess, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
-ACCOUNTS = [("VN1", "<kaggle-user-1>"), ("VN2", "<kaggle-user-2>")]
 model, nshards = sys.argv[1], int(sys.argv[2])
-acct_sel = sys.argv[3]  # VN1 or VN2: all shards of this model run on one account
+acct_sel = sys.argv[3]  # credentials profile: all shards of this model run on one account
 only = range(nshards)
 tag = model.split("/")[-1].lower().replace(".", "")[:20]
 tpl = (ROOT / "kaggle" / "embed_template.py").read_text()
 for s in only:
-    acct, user = acct_sel, dict(ACCOUNTS)[acct_sel]
+    acct, user = acct_sel, json.loads((Path.home() / ".kaggle" / acct_sel / "kaggle.json").read_text())["username"]
     slug = f"paiec-emb-{tag}-s{s}"
     d = ROOT / "kaggle" / "build" / slug
     d.mkdir(parents=True, exist_ok=True)

@@ -4,12 +4,10 @@
 
 | Resource | Status |
 |---|---|
-| Kaggle VN1 (`<kaggle-user-1>`) | in use for PAIEC. Private dataset `<kaggle-user-1>/paiec-hf` (HF token) created 2026-11-02 |
-| Kaggle VN2 (`<kaggle-user-2>`) | in use for PAIEC. Private dataset `<kaggle-user-2>/paiec-hf` created 2026-11-02 |
-| Other Kaggle folders (`k`, `vk`, `New`, root) | **not used**; other agents work there |
-| Other agents' kernels/datasets on VN accounts (`<other-project-kernel>`, `<other-project-kernel>`, `<other-project-kernel>`) | **not touched**. All PAIEC kernels use the prefix `paiec-` |
-| HF token (`.env`) | account `vaibhavkanojia`. **Not yet granted access to the gated `aims-foundations/measurement-db`** (403 GatedRepoError, 2026-11-02) |
-| Local disk | D: 63 GB free. Budget for data: core tables ≈ 14.8 GB (see `PAIEC_dataset_files.md`) |
+| Cloud notebook compute | two cloud GPU notebook profiles ("VN1", "VN2"; 2× NVIDIA T4 16 GB per session) used for embeddings and some simulator runs. All PAIEC kernels use the prefix `paiec-`. The HF token is kept in a private dataset, never in code |
+| Local machine | laptop, 12th Gen Intel Core i7-1250U (12 threads), 16 GB RAM, no GPU; D: 63 GB free |
+| HF token (`.env`, not released) | access to the gated `aims-foundations/measurement-db` granted 2026-11-02 |
+| Data budget | core tables ≈ 14.8 GB download (8.5 GB on disk) |
 
 ## Project layout
 
