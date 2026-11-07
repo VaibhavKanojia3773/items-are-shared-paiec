@@ -21,7 +21,9 @@
 \usepackage[capitalise,noabbrev]{cleveref}
 
 \definecolor{accent}{HTML}{2A78D6}
-\hypersetup{colorlinks=true, linkcolor=accent, citecolor=accent, urlcolor=accent}
+\hypersetup{colorlinks=true, linkcolor=accent, citecolor=accent, urlcolor=accent,
+  pdftitle={Items Are Shared, Abilities Are Not: Predicting AI Correctness on Unseen Benchmarks from Other Systems' Labels},
+  pdfauthor={Vaibhav Kanojia}}
 \newcommand{\ALC}{\mathrm{ALC}}
 \newcommand{\Lb}{\mathcal{L}}
 \DeclareMathOperator{\logit}{logit}
@@ -256,7 +258,7 @@ Thirteen formative runs of nine development packages scored 0.146--0.209, and th
 The hidden overlap distribution is unknown, and isolated pairs, where partner evidence cannot help, may be common.
 The main results use an embedding-free proxy of the package, and repeated responses, duplicated inputs and acquisition-time predictions differ between the simulator and the package (\cref{sec:validation}).
 All configurations were chosen on the public benchmark pool that the evaluation folds use.
-The controlled study covers \ovNb{} benchmarks with ten complete subjects and two selection seeds.
+The controlled study covers \ovNb{} and \ovNbB{} eligible benchmarks (ten complete subjects each) across its two selection seeds.
 Text tokens and embeddings ignore images, which matter in about 30 mostly visual public benchmarks, and budget-0 predictions stay near 0.25.
 
 \textbf{Conclusion.}
@@ -265,7 +267,7 @@ On benchmarks excluded from development, the revealed labels of other systems on
 \paragraph{Reproducibility and disclosures.}
 Code and results are released at \url{https://github.com/VaibhavKanojia3773/items-are-shared-paiec}; the same files form the OpenReview supplementary archive, which contains the submitted ZIP, a manifest with full hashes, the simulator, all experiment and figure scripts, the logged outputs behind every table and figure, and instructions (\cref{app:repro}).
 Pretrained model: \texttt{intfloat/multilingual-e5-small} (MIT licence), frozen, for item embeddings. Data: the public measurement-db only. No LLM is called at scoring time. The offline rating pilot used open models through the NVIDIA API on public items only and did not influence the submitted method.
-Compute: a laptop CPU (Python 3.10, NumPy 2.2, pandas 2.3) and Kaggle CPU/T4 sessions. A dictionary-interface replay of 19 public pairs took 65\,s on the laptop CPU without the encoder. Earlier encoder-enabled replays of 24 pairs took 68--93\,s on Kaggle.
+Compute: a laptop (12th Gen Intel Core i7-1250U, 16\,GB RAM, no GPU; Python 3.10, NumPy 2.2, pandas 2.3) and cloud notebook sessions with 2$\times$NVIDIA T4 (16\,GB) GPUs, used only to compute embeddings and to run some simulations in parallel. The package needs no GPU. A dictionary-interface replay of 19 public pairs took 65\,s on the laptop CPU without the encoder. Earlier encoder-enabled replays of 24 pairs took 68--93\,s on Kaggle.
 The code, experiments and this report were developed with Claude Code (Anthropic) as an AI coding and writing assistant. The author directed the work and checked the claims.
 
 \bibliographystyle{plainnat}
@@ -372,7 +374,7 @@ The four identical v3 runs have mean 0.184 and sample SD 0.014. Assuming indepen
 The repository \url{https://github.com/VaibhavKanojia3773/items-are-shared-paiec} (identical to the supplementary archive) lists every command in \texttt{README.md}.
 {\raggedright
 \begin{itemize}
-  \item \emph{Verify from bundled outputs} (minutes): \texttt{paper/scripts/analyze\_r7.py} recomputes every interval and writes \texttt{paper/results.tex} from the saved per-pair arrays; the figure scripts redraw \cref{fig:overlap,fig:curves,fig:noise}.
+  \item \emph{Verify from the release alone} (minutes, no data download): \texttt{paper/scripts/verify\_numbers.py} independently recomputes the reported values; \texttt{paper/scripts/analyze\_r7.py} recomputes every interval and rewrites \texttt{paper/results.tex} from the saved per-pair arrays and the bundled per-row benchmark metadata; the figure scripts redraw \cref{fig:overlap,fig:curves,fig:noise}.
   \item \emph{Recompute from raw data}: \texttt{scripts/download\_core.py} and \texttt{scripts/build\_tables.py} build the 31.8M-cell table; \texttt{paiec/evaluate.py -{}-single -{}-no\_provider -{}-methods \ldots} reproduces \cref{tab:main,tab:components} per regime (\texttt{-{}-formative 100 -{}-rows R}), method suffix \texttt{c1o} gives the gate runs, and \texttt{paiec/overlap.py -{}-seed 0/1} reproduces \cref{fig:overlap}.
   \item \emph{Package}: \texttt{paiec/build\_submission.py} rebuilds an equivalent of the selected ZIP, which passes the official \texttt{check\_submission\_zip.py}.
 \end{itemize}
